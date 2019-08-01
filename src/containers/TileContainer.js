@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 
 export default class TileContainer extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             index: -1,
             value: -1
@@ -27,9 +27,4 @@ export default class TileContainer extends Component {
             value: val
         })
     }
-
-    initializeValue()
-    initializeIndex()
-
-    
 }
