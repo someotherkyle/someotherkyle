@@ -19,23 +19,37 @@ function roundedRect(ctx, x, y, width, height, radius) {
 }
 
 export default class BoardContainer extends Component {
-    componentDidMount(){
+    componentDidMount(){ //hard coded & will need to change if I implement various board sizes
         let canvas = document.getElementById('board')
         if (canvas.getContext){
             let ctx = canvas.getContext('2d')
-            ctx.fillStyle = colors.base02
+            ctx.fillStyle = colors.darkText
             ctx.fillRect(0, 0, 500, 500)
 
             let a = 12
             for (let i = 0; i <= 4; i++){
                 let b = 12
                 for (let j = 0; j <=4; j++){
-                    ctx.fillStyle = colors.base0
+                    ctx.fillStyle = colors.emptyTileBackground
                     roundedRect(ctx, a, b, 110, 110, 10)
                     b += 122
                 }
                 a += 122
             }
+        //   playing around w/ canvas below
+        //   hard coding 2 tiles
+        ctx.fillStyle = colors.lightText
+        roundedRect (ctx, 256, 378, 110, 110, 10)
+        
+        ctx.font = '72px bold sans-serif'
+        ctx.fillStyle = colors.darkText
+        ctx.fillText('2', 293, 455, 110)
+
+        ctx.fillStyle = colors.base01
+        roundedRect(ctx, 378, 378, 110, 110, 10)
+
+        ctx.fillStyle = colors.lightText
+        ctx.fillText('4', 415, 455, 110)
         }
     }
     //<TileContainer />
