@@ -5,14 +5,13 @@ import {
 } from 'react-router-dom'
 import './App.css'
 import NavBar from './components/NavBar'
-import Home from './components/Home'
-
+import BoardContainer from './containers/BoardContainer'
 function App() {
   return (
     <Router>
       <div className='App'></div>
       <NavBar />
-      <Route exact path='/' component={Home} />
+      <Route exact path='/' component={BoardContainer} />
     </Router>
   );
 }
