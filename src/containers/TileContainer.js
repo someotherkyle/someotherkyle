@@ -18,33 +18,29 @@ function roundedRect(ctx, x, y, width, height, radius) {
 }
 
 class TileContainer extends Component {
-    componentDidMount = () => {
-        
-    }
-    initializeIndex = (props) => {
-        let proposedIndex = Math.random() * Math.floor(16) //hardcoded for now, will need to update w/ various board sizes
 
-        //TODO: verify index availability 
-        //set index to randomly generated, available index
-        let availableIndex = -1 //change that <--
-        this.setState({
-            ...this.state,
-            index: availableIndex
-        })
+    componentDidMount = () => {
+        const tileIndex = this.initializeIndex
+        const tileValue = this.initializeValue
+    }
+
+    initializeIndex = (props) => {
+        let proposedIndex
+        do {
+            proposedIndex = Math.random() * Math.floor(17) //hardcoded for now, will need to update w/ various board sizes
+        } while (this.props.occupied.includes(proposedIndex))
+        return proposedIndex
     }
 
     initializeValue = () => {
         let val = Math.random();
         val < .9 ? val = 2 : val = 4
-        this.setState({
-            ...this.state,
-            value: val
-        })
+        return val
     }
 }
 const mapStateToProps = (state) => {
     return {
-        occupied: state.occupied
+        occupied: this.state.occupied
     }
 }
 export default connect(mapStateToProps)(TileContainer)
