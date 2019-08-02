@@ -1,4 +1,4 @@
-export default function manageTiles(state = {
+export default function tilesReducer(state = {
     occupied: []
 }, action){
     switch(action.type){
