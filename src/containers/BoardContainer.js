@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-//import TileContainer from './TileContainer'
 import Board from '../components/Board'
 import colors from '../colors'
+import Game from '../actions/Game'
 import { connect } from 'react-redux'
 
 function roundedRect(ctx, x, y, width, height, radius) {
@@ -23,7 +23,7 @@ export default class BoardContainer extends Component {
         let canvas = document.getElementById('board')
         if (canvas.getContext){
             let ctx = canvas.getContext('2d')
-            ctx.fillStyle = colors.darkText
+            ctx.fillStyle = colors.boardBackground
             ctx.fillRect(0, 0, 500, 500)
 
             let a = 12
@@ -36,22 +36,6 @@ export default class BoardContainer extends Component {
                 }
                 a += 122
             }
-        //   playing around w/ canvas below
-        //   hard coding 2 tiles
-/*         ctx.fillStyle = colors.lightText
-        roundedRect (ctx, 256, 378, 110, 110, 10)
-        
-        ctx.font = '72px sans-serif'
-        ctx.textAlign = 'center'
-        ctx.textBaseline = 'middle'
-        ctx.fillStyle = colors.darkText
-        ctx.fillText('2', 311, 433, 110)
-
-        ctx.fillStyle = colors.base01
-        roundedRect(ctx, 378, 378, 110, 110, 10)
-
-        ctx.fillStyle = colors.lightText
-        ctx.fillText('4', 433, 433, 110) */
         }
     }
     //<TileContainer />
