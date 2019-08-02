@@ -4,10 +4,20 @@ import './index.css'
 import App from './App'
 // huh -> ?  import * as serviceWorker from './serviceWorker'
 import {Provider} from 'react-redux'
-import {createStore} from 'redux'
-import manageTiles from './reducers/manageTiles'
+import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
+import thunk from 'redux-thunk'
+import tilesReducer from './reducers/tilesReducer'
 
-let store = createStore(manageTiles, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const reducers = combineReducers({
+    tiles: tilesReducer
+})
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+let store = createStore(
+    reducers, 
+    composeEnhancer(applyMiddleware())
+)
 
 ReactDOM.render(
     <Provider store={store}>
