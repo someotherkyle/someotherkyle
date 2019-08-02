@@ -1,0 +1,16 @@
+#board-div {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+#board{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+canvas {
+    position: absolute;
+}
