@@ -38,18 +38,20 @@ export default class BoardContainer extends Component {
             }
         //   playing around w/ canvas below
         //   hard coding 2 tiles
-        ctx.fillStyle = colors.lightText
+/*         ctx.fillStyle = colors.lightText
         roundedRect (ctx, 256, 378, 110, 110, 10)
         
-        ctx.font = '72px bold sans-serif'
+        ctx.font = '72px sans-serif'
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'middle'
         ctx.fillStyle = colors.darkText
-        ctx.fillText('2', 293, 455, 110)
+        ctx.fillText('2', 311, 433, 110)
 
         ctx.fillStyle = colors.base01
         roundedRect(ctx, 378, 378, 110, 110, 10)
 
         ctx.fillStyle = colors.lightText
-        ctx.fillText('4', 415, 455, 110)
+        ctx.fillText('4', 433, 433, 110) */
         }
     }
     //<TileContainer />
