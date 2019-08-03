@@ -1,22 +1,9 @@
 import React, {Component} from 'react'
 import Board from '../components/Board'
 import colors from '../colors'
-import Tile from '../actions/Tile'
-import { connect } from 'react-redux'
-
-function roundedRect(ctx, x, y, width, height, radius) {
-    ctx.beginPath()
-    ctx.moveTo(x, y + radius)
-    ctx.lineTo(x, y + height - radius)
-    ctx.arcTo(x, y + height, x + radius, y + height, radius)
-    ctx.lineTo(x + width - radius, y + height)
-    ctx.arcTo(x + width, y + height, x + width, y + height-radius, radius)
-    ctx.lineTo(x + width, y + radius)
-    ctx.arcTo(x + width, y, x + width - radius, y, radius)
-    ctx.lineTo(x + radius, y)
-    ctx.arcTo(x, y, x, y + radius, radius)
-    ctx.fill()
-}
+// import { connect } from 'react-redux'
+import { roundedRect } from '../actions/canvas'
+import Game from '../actions/Game'
 
 export default class BoardContainer extends Component {
     componentDidMount(){ //hard coded & will need to change if I implement various board sizes
@@ -37,22 +24,29 @@ export default class BoardContainer extends Component {
                 a += 122
             }
         }
+        const game = new Game()
+        game.start()
 
-        const adam = new Tile()
-        adam.draw()
-
-        const steve = new Tile()
-        steve.draw()
     }
 
-    handleKeyPress = event => {
-        event.preventDefault()
-        console.log(event.key)
+    handleKeyPress = e => {
+        e.preventDefault()
+        console.log(e.value)
     }
 
     render(){
         return(
-            <Board onKeyPress={this.handleKeyPress} />
+            <div onKeyPress={this.handleKeyPress}>
+                <Board />
+            </div>
         )
     }
 }
+
+/* const mapStateToProps = state => {
+    return {
+        tiles: state.tiles 
+    }
+}
+
+export default connect(mapStateToProps)(BoardContainer) */
