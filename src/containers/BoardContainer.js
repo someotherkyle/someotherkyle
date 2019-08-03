@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Board from '../components/Board'
 import colors from '../colors'
-import Game from '../actions/Game'
+import Tile from '../actions/Tile'
 import { connect } from 'react-redux'
 
 function roundedRect(ctx, x, y, width, height, radius) {
@@ -37,9 +37,14 @@ export default class BoardContainer extends Component {
                 a += 122
             }
         }
+
+        const adam = new Tile()
+        adam.draw()
+
+        const steve = new Tile()
+        steve.draw()
     }
-    //<TileContainer />
-    //<TileContainer />
+
     render(){
         return(
             <Board />
