@@ -16,8 +16,8 @@ export const roundedRect = (ctx, x, y, width, height, radius) => {
 
 const convertIndexToCoords = pos => {
     let coords = { x: -1, y: -1 }
-    coords.x = (pos[0] * 122) + 12
-    coords.y = (pos[1] * 122) + 12
+    coords.x = (pos.x * 122) + 12
+    coords.y = (pos.y * 122) + 12
     return coords
 }
 

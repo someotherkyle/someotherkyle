@@ -7,11 +7,11 @@ export default class Tile {
     
 
     initializePos = board => {
-        let newPos = []
+        let newPos = {}
         do {
-            newPos[0] = parseInt(Math.random() * Math.floor(4))
-            newPos[1] = parseInt(Math.random() * Math.floor(4))
-        } while (board[newPos[0]][newPos[1] !== 0])
+            newPos.x = parseInt(Math.random() * Math.floor(4))
+            newPos.y = parseInt(Math.random() * Math.floor(4))
+        } while (board[newPos.x][newPos.y] !== 0)
         return newPos
     }
 
