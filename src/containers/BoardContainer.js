@@ -24,14 +24,14 @@ export default class BoardContainer extends Component {
         if (canvas.getContext){
             let ctx = canvas.getContext('2d')
             ctx.fillStyle = colors.boardBackground
-            ctx.fillRect(0, 0, 500, 500)
+            roundedRect(ctx, 0, 0, 500, 500, 5)
 
             let a = 12
             for (let i = 0; i <= 4; i++){
                 let b = 12
                 for (let j = 0; j <=4; j++){
                     ctx.fillStyle = colors.emptyTileBackground
-                    roundedRect(ctx, a, b, 110, 110, 10)
+                    roundedRect(ctx, a, b, 110, 110, 5)
                     b += 122
                 }
                 a += 122
@@ -45,9 +45,14 @@ export default class BoardContainer extends Component {
         steve.draw()
     }
 
+    handleKeyPress = event => {
+        event.preventDefault()
+        console.log(event.key)
+    }
+
     render(){
         return(
-            <Board />
+            <Board onKeyPress={this.handleKeyPress} />
         )
     }
 }

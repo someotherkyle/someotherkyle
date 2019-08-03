@@ -125,7 +125,7 @@ class Tile {
             ctx.textBaseline = 'middle'
             
             ctx.fillStyle = colors[tileColor]
-            roundedRect(ctx, coords.x, coords.y, 110, 110, 10)
+            roundedRect(ctx, coords.x, coords.y, 110, 110, 5)
 
             ctx.fillStyle = colors[textColor]
             ctx.fillText(this.state.value, coords.x + 55, coords.y + 55, 110)
