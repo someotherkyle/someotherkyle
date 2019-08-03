@@ -25,20 +25,32 @@ export default class BoardContainer extends Component {
             }
         }
         const game = new Game()
+        window.addEventListener('keypress', event => {this.handleKeyPress(event, game)})
         game.start()
-
     }
 
-    handleKeyPress = e => {
+    handleKeyPress = (e, game) => {
         e.preventDefault()
-        console.log(e.value)
+        if (e.key === 'a' || e.key === 'h'){
+            console.log('left')
+            game.left()
+        } else if (e.key === 'd' || e.key === 'l'){
+            console.log('right')
+            game.right()
+        } else if (e.key === 's' || e.key === 'j'){
+            console.log('down')
+            game.down()
+        } else if (e.key === 'w' || e.key === 'k'){
+            console.log('up')
+            game.up()
+        } else {
+            return console.log(e.key)
+        }
     }
 
     render(){
         return(
-            <div onKeyPress={this.handleKeyPress}>
-                <Board />
-            </div>
+            <Board />
         )
     }
 }
