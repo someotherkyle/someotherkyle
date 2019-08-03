@@ -31,20 +31,29 @@ export default class BoardContainer extends Component {
 
     handleKeyPress = (e, game) => {
         e.preventDefault()
-        if (e.key === 'a' || e.key === 'h'){
-            console.log('left')
-            game.left()
-        } else if (e.key === 'd' || e.key === 'l'){
-            console.log('right')
-            game.right()
-        } else if (e.key === 's' || e.key === 'j'){
-            console.log('down')
-            game.down()
-        } else if (e.key === 'w' || e.key === 'k'){
-            console.log('up')
-            game.up()
-        } else {
-            return console.log(e.key)
+        switch (e.keyCode) {
+            case 119: 
+            case 107:
+            case 38:
+                game.up()
+                break
+            case 115:
+            case 106:
+            case 40:
+                game.down()
+                break
+            case 97:
+            case 104:
+            case 37:
+                game.left()
+                break
+            case 100:
+            case 108:
+            case 39:
+                game.right()
+                break
+            default:
+                break
         }
     }
 

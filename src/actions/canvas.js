@@ -14,19 +14,20 @@ export const roundedRect = (ctx, x, y, width, height, radius) => {
     ctx.fill()
 }
 
-const convertIndexToCoords = pos => {
+const convertIndexToCoords = (x, y) => {
     let coords = { x: -1, y: -1 }
-    coords.x = (pos.x * 122) + 12
-    coords.y = (pos.y * 122) + 12
+    coords.x = (x * 122) + 12
+    coords.y = (y * 122) + 12
     return coords
 }
 
 
-export const draw = tile => {
+export const drawTile = (x, y, val) => {
+    debugger
     let canvas = document.getElementById('tile-canvas')
-    const coords = convertIndexToCoords(tile.pos)
-    const tileColor = "tile" + tile.value.toString()
-    const textColor = "text" + tile.value.toString()
+    const coords = convertIndexToCoords(x, y)
+    const tileColor = "tile" + val.toString()
+    const textColor = "text" + val.toString()
     if (canvas.getContext){
         let ctx = canvas.getContext('2d')
         ctx.font = '72px sans-serif'
@@ -37,6 +38,15 @@ export const draw = tile => {
         roundedRect(ctx, coords.x, coords.y, 110, 110, 5)
 
         ctx.fillStyle = colors[textColor]
-        ctx.fillText(tile.value, coords.x + 55, coords.y + 55, 110)
+        ctx.fillText(val, coords.x + 55, coords.y + 55, 110)
+    }
+}
+
+export const clearTile = (x, y) => {
+    let canvas = document.getElementById('tile-canvas')
+    const coords = convertIndexToCoords(x, y)
+    if (canvas.getContext){
+        let ctx = canvas.getContext('2d')
+        ctx.clearRect(coords.x, coords.y, 110, 110)
     }
 }
