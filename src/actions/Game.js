@@ -24,6 +24,7 @@ export default class Game {
 
     newTile = () => {
         let tile = new Tile(this.board)
+        this.board[tile.pos.x][tile.pos.y] = tile.value
         draw(tile)
     }
 
