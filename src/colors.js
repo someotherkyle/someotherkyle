@@ -20,22 +20,16 @@ const colors = {
     boardBackground: "rgb(101, 123, 131)", //base00
     emptyTileBackground: "rgb(131, 148, 150)", //base0
     tile2: "rgb(238, 232, 213)", 
-    text2: "rgb(101, 123, 131)", 
     tile4: "rgb(88, 110, 117)",
-    text4: "rgb(238, 232, 213)", 
     tile8: "rgb(203, 75, 22)",
-    text8: "rgb(238, 232, 213)", 
     tile16: "rgb(220, 50, 47)",
-    text16: "rgb(238, 232, 213)",
     tile32: "rgb(211, 54, 130)",
-    text32: "rgb(238, 232, 213)",
     tile64: "rgb(108, 113, 196)",
-    text64: "rgb(238, 232, 213)",
     tile128: "rgb(38, 139, 210)",
-    text128: "rgb(238, 232, 213)",
     tile256: "rgb(42, 161, 152)",
-    text256: "rgb(238, 232, 213)",
     tile512: "rgb(133, 153, 0)",
-    text512: "rgb(238, 232, 213)",
+    tile1024: "rgb(181, 137, 0)",
+    tile2048: "rgb(7, 54, 66)",
+    tile4096: "rgb(0, 43, 54)",
 }
 export default colors

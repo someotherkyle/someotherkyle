@@ -4,8 +4,6 @@ export default class Tile {
         this.value = this.initializeValue()
     }
 
-    
-
     initializePos = board => {
         let newPos = {}
         do {

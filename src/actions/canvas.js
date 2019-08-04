@@ -24,8 +24,8 @@ const convertIndexToCoords = (x, y) => {
 
 export const drawTile = (x, y, val) => {
     const coords = convertIndexToCoords(x, y)
-    const tileColor = "tile" + val.toString()
-    const textColor = "text" + val.toString()
+    const tileColor = val > 4096 ? "tile 4096" : "tile" + val.toString()
+    const textColor = val === 2? 'darkText' : 'lightText'
     const canvas = document.getElementById('tile-canvas')
     if (canvas.getContext){
         let ctx = canvas.getContext('2d')
