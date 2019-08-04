@@ -1,8 +1,8 @@
-export function canMoveUp(board){
-    for (let i = 0; i < 4; i++){
-        for (let j = 0; j < 4; j++){
-            if (board[i][j] !== 0) {
-                if (board[(i + 1)][j] === 0 || board[(i + 1)][j] === board[i][j]){
+export const canMoveUp = board => {
+    for (let x = 0; x < 4; x++){
+        for (let y = 1; y < 4; y++){
+            if (board[x][y] !== 0) {
+                if (board[x][y - 1] === 0 || board[x][y] === board[x][y - 1]){
                     return true
                 }
             }
@@ -11,11 +11,11 @@ export function canMoveUp(board){
     return false
 }
 
-export function canMoveDown(board){
-    for (let i = 2; i > -1; i--){
-        for (let j = 0; j < 4; j++){
-            if (board[i][j] !== 0) {
-                if (board[(i + 1)][j] === 0 || board[(i + 1)][j] === board[i][j]){
+export const canMoveDown = board => {
+    for (let x = 0; x < 4; x++){
+        for (let y = 2; y >= 0; y--){
+            if (board[x][y] !== 0) {
+                if (board[x][y + 1] === 0 || board[x][y] === board[x][y + 1]){
                     return true
                 }
             }
@@ -24,11 +24,11 @@ export function canMoveDown(board){
     return false
 }
 
-export function canMoveRight(board){
-    for (let i = 0; i < 4; i++){
-        for (let j = 2; j > -1; j--){
-            if (board[i][j] !== 0) {
-                if (board[i][(j + 1)] === 0 || board[1][(j + 1)] === board[i][j]){
+export const canMoveLeft = board => {
+    for (let y = 0; y < 4; y++){
+        for (let x = 1; x < 4; x++){
+            if (board[x][y] !== 0) {
+                if (board[x - 1][y] === 0 || board[x][y] === board[x - 1][y]){
                     return true
                 }
             }
@@ -37,11 +37,11 @@ export function canMoveRight(board){
     return false
 }
 
-export function canMoveLeft(board){
-    for (let i = 0; i < 4; i++){
-        for (let j = 0; j < 4; j++){
-            if (board[i][j] !== 0) {
-                if (board[i][(j - 1)] === 0 || board[i][(j - 1)] === board[i][j]){
+export const canMoveRight = board => {
+    for (let y = 0; y < 4; y++){
+        for (let x = 2; x >= 0; x--){
+            if (board[x][y] !== 0) {
+                if (board[x + 1][y] === 0 || board[x][y] === board[x + 1][y]){
                     return true
                 }
             }
@@ -51,8 +51,8 @@ export function canMoveLeft(board){
 }
 
 export function noBlockVert(col, row1, row2, board){
-    for (let i = row1 + 1; i < row2; i++){
-        if (board[i][col] !== 0){
+    for (let x = row1 + 1; x < row2; x++){
+        if (board[x][col] !== 0){
             return false
         }
     }
@@ -60,8 +60,8 @@ export function noBlockVert(col, row1, row2, board){
 }
 
 export function noBlockHoriz(row, col1, col2, board){
-    for (let i = col1 + 1; i < col2; i++){
-        if (board[row][i] !== 0){
+    for (let x = col1 + 1; x < col2; x++){
+        if (board[row][x] !== 0){
             return false
         }
     }
