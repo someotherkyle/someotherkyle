@@ -6,6 +6,7 @@ export default class Game {
     constructor(){
         this.board = this.initBoard()
         this.score = 0
+        this.eligible = this.resetEligibility()
     }
 
     initBoard = () => {
@@ -17,6 +18,17 @@ export default class Game {
             }
         }
         return board
+    }
+
+    resetEligibility = () => {
+        let eligible = []
+        for (let i = 0; i < 4; i++){
+            eligible[i] = []
+            for (let j = 0; j < 4; j++){
+                eligible[i][j] = true
+            }
+        }
+        return eligible
     }
 
     newTile = () => {
@@ -44,9 +56,10 @@ export default class Game {
                             this.board[x][y] = 0
                             clearTile(x, y)
                             break
-                        } else if (this.board[x][y] === this.board[x][y1] && clearShotVert(x, y1, y, this.board)){
+                        } else if (this.board[x][y] === this.board[x][y1] && clearShotVert(x, y1, y, this.board) && this.eligible[x][y1]){
                             this.board[x][y1] += this.board[x][y]
                             drawTile(x, y1, this.board[x][y1])
+                            this.eligible[x][y1] = false
                             this.score += this.board[x][y1]
                             this.board[x][y] = 0
                             clearTile(x, y)
@@ -56,6 +69,7 @@ export default class Game {
                 }
             }
         }
+        this.eligible = this.resetEligibility()
         this.newTile()
     }
 
@@ -73,9 +87,10 @@ export default class Game {
                             this.board[x][y] = 0
                             clearTile(x, y)
                             break
-                        } else if (this.board[x][y] === this.board[x][y1] && clearShotVert(x, y, y1, this.board)){
+                        } else if (this.board[x][y] === this.board[x][y1] && clearShotVert(x, y, y1, this.board) && this.eligible[x][y1]){
                             this.board[x][y1] += this.board[x][y]
                             drawTile(x, y1, this.board[x][y1])
+                            this.eligible[x][y1] = false
                             this.score += this.board[x][y1]
                             this.board[x][y] = 0
                             clearTile(x, y)
@@ -85,6 +100,7 @@ export default class Game {
                 }
             }
         }
+        this.eligible = this.resetEligibility()
         this.newTile()
     }
 
@@ -102,9 +118,10 @@ export default class Game {
                             this.board[x][y] = 0
                             clearTile(x, y)
                             break
-                        } else if (this.board[x][y] === this.board[x1][y] && clearShotHoriz(y, x1, x, this.board)){
+                        } else if (this.board[x][y] === this.board[x1][y] && clearShotHoriz(y, x1, x, this.board) && this.eligible[x1][y]){
                             this.board[x1][y] += this.board[x][y]
                             drawTile(x1, y, this.board[x1][y])
+                            this.eligible[x1][y] = false
                             this.score += this.board[x1][y]
                             this.board[x][y] = 0
                             clearTile(x, y)
@@ -114,6 +131,7 @@ export default class Game {
                 }
             }
         }
+        this.eligible = this.resetEligibility()
         this.newTile()
     }
 
@@ -131,9 +149,10 @@ export default class Game {
                             this.board[x][y] = 0
                             clearTile(x, y)
                             break
-                        } else if (this.board[x][y] === this.board[x1][y] && clearShotHoriz(y, x, x1, this.board)){
+                        } else if (this.board[x][y] === this.board[x1][y] && clearShotHoriz(y, x, x1, this.board) && this.eligible[x1][y]){
                             this.board[x1][y] += this.board[x][y]
                             drawTile(x1, y, this.board[x1][y])
+                            this.eligible[x1][y] = false
                             this.score += this.board[x1][y]
                             this.board[x][y] = 0
                             clearTile(x, y)
@@ -143,6 +162,7 @@ export default class Game {
                 }
             }
         }
+        this.eligible = this.resetEligibility()
         this.newTile()
     }
 }

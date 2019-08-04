@@ -7,7 +7,7 @@ import Game from '../actions/Game'
 
 export default class BoardContainer extends Component {
     componentDidMount(){ //hard coded & will need to change if I implement various board sizes
-        let canvas = document.getElementById('board')
+        let canvas = document.getElementById('game-board')
         if (canvas.getContext){
             let ctx = canvas.getContext('2d')
             ctx.fillStyle = colors.boardBackground
