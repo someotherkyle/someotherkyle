@@ -1,6 +1,6 @@
 import Tile from './Tile'
 import { drawTile, clearTile } from './canvas'
-import { canMoveUp, canMoveDown, canMoveLeft, canMoveRight } from './GameHelpers'
+import { canMoveUp, canMoveDown, canMoveLeft, canMoveRight, clearShotVert, clearShotHoriz } from './GameHelpers'
 
 export default class Game {
     constructor(){
@@ -44,7 +44,7 @@ export default class Game {
                             this.board[x][y] = 0
                             clearTile(x, y)
                             break
-                        } else if (this.board[x][y] === this.board[x][y1]){
+                        } else if (this.board[x][y] === this.board[x][y1] && clearShotVert(x, y1, y, this.board)){
                             this.board[x][y1] += this.board[x][y]
                             drawTile(x, y1, this.board[x][y1])
                             this.score += this.board[x][y1]
@@ -73,7 +73,7 @@ export default class Game {
                             this.board[x][y] = 0
                             clearTile(x, y)
                             break
-                        } else if (this.board[x][y] === this.board[x][y1]){
+                        } else if (this.board[x][y] === this.board[x][y1] && clearShotVert(x, y, y1, this.board)){
                             this.board[x][y1] += this.board[x][y]
                             drawTile(x, y1, this.board[x][y1])
                             this.score += this.board[x][y1]
@@ -102,7 +102,7 @@ export default class Game {
                             this.board[x][y] = 0
                             clearTile(x, y)
                             break
-                        } else if (this.board[x][y] === this.board[x1][y]){
+                        } else if (this.board[x][y] === this.board[x1][y] && clearShotHoriz(y, x1, x, this.board)){
                             this.board[x1][y] += this.board[x][y]
                             drawTile(x1, y, this.board[x1][y])
                             this.score += this.board[x1][y]
@@ -131,7 +131,7 @@ export default class Game {
                             this.board[x][y] = 0
                             clearTile(x, y)
                             break
-                        } else if (this.board[x][y] === this.board[x1][y]){
+                        } else if (this.board[x][y] === this.board[x1][y] && clearShotHoriz(y, x, x1, this.board)){
                             this.board[x1][y] += this.board[x][y]
                             drawTile(x1, y, this.board[x1][y])
                             this.score += this.board[x1][y]
