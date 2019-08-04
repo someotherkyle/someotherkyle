@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import Board from '../components/Board'
 import colors from '../colors'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 import { roundedRect } from '../actions/canvas'
 import Game from '../actions/Game'
+import { updateBoard, updateScore } from '../actions/gameActionCreator'
 
-export default class BoardContainer extends Component {
+class BoardContainer extends Component {
     componentDidMount(){ //hard coded & will need to change if I implement various board sizes
         let canvas = document.getElementById('game-board')
         if (canvas.getContext){
@@ -36,21 +37,29 @@ export default class BoardContainer extends Component {
             case 107:
             case 38:
                 game.up()
+                this.props.updateBoard(game.board)
+                this.props.updateScore(game.score)
                 break
             case 115:
             case 106:
             case 40:
                 game.down()
+                this.props.updateBoard(game.board)
+                this.props.updateScore(game.score)
                 break
             case 97:
             case 104:
             case 37:
                 game.left()
+                this.props.updateBoard(game.board)
+                this.props.updateScore(game.score)
                 break
             case 100:
             case 108:
             case 39:
                 game.right()
+                this.props.updateBoard(game.board)
+                this.props.updateScore(game.score)
                 break
             default:
                 break
@@ -64,10 +73,10 @@ export default class BoardContainer extends Component {
     }
 }
 
-/* const mapStateToProps = state => {
+const mapStateToProps = state => {
     return {
-        tiles: state.tiles 
+        board: state.board 
     }
 }
 
-export default connect(mapStateToProps)(BoardContainer) */
+export default connect(mapStateToProps, { updateBoard, updateScore })(BoardContainer)

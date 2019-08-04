@@ -52,7 +52,6 @@ export const canMoveRight = board => {
 
 export const clearShotHoriz = (row, lowX, highX, board) => {
     for (let x = lowX + 1; x < highX; x++){
-        debugger
         if (board[x][row] !== 0 && board[x][row] !== board[highX][row]){
             return false
         }
@@ -62,7 +61,6 @@ export const clearShotHoriz = (row, lowX, highX, board) => {
 
 export const clearShotVert = (col, lowY, highY, board) => {
     for (let y = lowY + 1; y < highY; y++){
-        debugger
         if (board[col][y] !== 0 && board[col][y] !== board[col][highY]){
             return false
         }

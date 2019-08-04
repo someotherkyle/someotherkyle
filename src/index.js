@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker'
 import {Provider} from 'react-redux'
 import {createStore/*, combineReducers, compose, applyMiddleware*/} from 'redux'
 // import thunk from 'redux-thunk'
-import tilesReducer from './reducers/tilesReducer'
+import gameReducer from './reducers/gameReducer'
 
 /* const reducers = combineReducers({
     tiles: tilesReducer
@@ -19,7 +19,7 @@ let store = createStore(
     composeEnhancer(applyMiddleware())
 ) */
 
-let store = createStore(tilesReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+let store = createStore(gameReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
     <Provider store={store}>
