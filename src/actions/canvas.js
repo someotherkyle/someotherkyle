@@ -21,10 +21,10 @@ const convertIndexToCoords = (x, y) => {
     return coords
 }
 
+const canvas = document.getElementById('tile-canvas')
 
 export const drawTile = (x, y, val) => {
     debugger
-    let canvas = document.getElementById('tile-canvas')
     const coords = convertIndexToCoords(x, y)
     const tileColor = "tile" + val.toString()
     const textColor = "text" + val.toString()
@@ -43,7 +43,6 @@ export const drawTile = (x, y, val) => {
 }
 
 export const clearTile = (x, y) => {
-    let canvas = document.getElementById('tile-canvas')
     const coords = convertIndexToCoords(x, y)
     if (canvas.getContext){
         let ctx = canvas.getContext('2d')

@@ -49,21 +49,3 @@ export const canMoveRight = board => {
     }
     return false
 }
-
-export function noBlockVert(col, row1, row2, board){
-    for (let x = row1 + 1; x < row2; x++){
-        if (board[x][col] !== 0){
-            return false
-        }
-    }
-    return true
-}
-
-export function noBlockHoriz(row, col1, col2, board){
-    for (let x = col1 + 1; x < col2; x++){
-        if (board[row][x] !== 0){
-            return false
-        }
-    }
-    return true
-}
