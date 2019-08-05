@@ -1,9 +1,10 @@
-export default function gameReducer(state = {
+const initialState = {
     board: [],
     score: 0,
     loading: false,
     games: []
-}, action){
+}
+export default function gameReducer(state = initialState, action){
     switch(action.type){
         case 'UPDATE_BOARD':
             return {
@@ -18,12 +19,14 @@ export default function gameReducer(state = {
             }
 
         case 'START_SCORE_FETCH':
+            console.log('start score fetch in reducer')
             return { 
                 ...state, 
                 loading: true 
             }
 
         case 'ADD_GAME':
+            console.log(action)
             return {
                 ...state,
                 games: [

@@ -4,7 +4,7 @@ import colors from '../colors'
 import { connect } from 'react-redux'
 import { roundedRect } from '../game/canvas'
 import Game from '../game/Game'
-import { updateBoard, updateScore } from '../actions/gameActionCreator'
+import { updateBoard, updateScore } from '../redux/actions/gameActionCreator'
 import { noMove } from '../game/GameHelpers'
 
 class BoardContainer extends Component {
@@ -43,10 +43,10 @@ class BoardContainer extends Component {
         const game = new Game()
         window.addEventListener('keypress', event => {this.handleKeyPress(event, game)})
         game.start()
+        this.props.updateBoard(game.board)
     }
-
     componentDidUpdate = () => {
-
+        this.props.updateBoard(this.game.board)
     }
 
     handleKeyPress = (e, game) => {

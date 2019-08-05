@@ -4,8 +4,8 @@ import { canMoveUp, canMoveDown, canMoveLeft, canMoveRight, clearShotVert, clear
 export default class Game {
     constructor(){
         this.board = this.initBoard()
-        this.score = 0
         this.eligible = this.resetEligibility()
+        this.score = 0
     }
 
     initBoard = () => {
@@ -53,6 +53,7 @@ export default class Game {
     }
 
     start = () => {
+        this.initBoard()
         this.newTile()
         this.newTile()
     }
