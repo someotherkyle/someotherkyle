@@ -1,4 +1,3 @@
-import Tile from './Tile'
 import { drawTile, clearTile } from './canvas'
 import { canMoveUp, canMoveDown, canMoveLeft, canMoveRight, clearShotVert, clearShotHoriz } from './GameHelpers'
 
@@ -32,9 +31,25 @@ export default class Game {
     }
 
     newTile = () => {
-        let tile = new Tile(this.board)
-        this.board[tile.pos.x][tile.pos.y] = tile.value
-        drawTile(tile.pos.x, tile.pos.y, tile.value)
+        let pos = this.getTileCoords()
+        let val = this.getTileVal()
+        this.board[pos.x][pos.y] = val
+        drawTile(pos.x, pos.y, val)
+    }
+
+    getTileCoords = () => {
+        let newCoords = {}
+        do {
+            newCoords.x = parseInt(Math.random() * 4)
+            newCoords.y = parseInt(Math.random() * 4)
+        } while (this.board[newCoords.x][newCoords.y] !== 0)
+        return newCoords
+    }
+
+    getTileVal = () => {
+        let val = Math.random()
+        val >= 9 ? val = 4 : val = 2
+        return val
     }
 
     start = () => {
