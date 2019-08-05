@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { roundedRect } from '../game/canvas'
 import Game from '../game/Game'
 import { updateBoard, updateScore } from '../actions/gameActionCreator'
+import { noMove } from '../game/GameHelpers'
 
 class BoardContainer extends Component {
     componentDidMount(){ //hard coded & will need to change if I implement various board sizes
@@ -39,6 +40,7 @@ class BoardContainer extends Component {
                 game.up()
                 this.props.updateBoard(game.board)
                 this.props.updateScore(game.score)
+                noMove(game.board)
                 break
             case 115:
             case 106:
@@ -46,6 +48,7 @@ class BoardContainer extends Component {
                 game.down()
                 this.props.updateBoard(game.board)
                 this.props.updateScore(game.score)
+                noMove(game.board)
                 break
             case 97:
             case 104:
@@ -53,6 +56,7 @@ class BoardContainer extends Component {
                 game.left()
                 this.props.updateBoard(game.board)
                 this.props.updateScore(game.score)
+                noMove(game.board)
                 break
             case 100:
             case 108:
@@ -60,6 +64,7 @@ class BoardContainer extends Component {
                 game.right()
                 this.props.updateBoard(game.board)
                 this.props.updateScore(game.score)
+                noMove(game.board)
                 break
             default:
                 break

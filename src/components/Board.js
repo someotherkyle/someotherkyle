@@ -8,6 +8,8 @@ class Board extends Component {
                 <p id='score-board'>Score: {this.props.score}</p>
                 <canvas id='game-board' height='500' width='500' />
                 <canvas id='tile-canvas' height='500' width='500' />
+                <button id='stop-game-button' value='Stop' />
+                <button id='start-game-button' value='Start!' />
             </div>
         )
     }
