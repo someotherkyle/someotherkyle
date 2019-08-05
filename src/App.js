@@ -8,9 +8,10 @@ import BoardContainer from './containers/BoardContainer'
 function App() {
   return (
     <Router>
-      <div className='App'></div>
-      <NavBar />
-      <Route exact path='/' component={BoardContainer} />
+      <div className='App'>
+        <NavBar />
+        <Route exact path='/' component={BoardContainer} />
+      </div>
     </Router>
   );
 }

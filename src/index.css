@@ -18,8 +18,15 @@ a {
   margin: 15px;
 }
 
-canvas {
-  position: absolute;
-  margin: auto;
+#board-div {
+  width: 500px;
+  margin: 5% auto;
 }
 
+canvas {
+  position: absolute;
+}
+
+#gameover-canvas {
+  display: none;
+}

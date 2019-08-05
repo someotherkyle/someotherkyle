@@ -31,13 +31,13 @@ export default class Game {
     }
 
     newTile = () => {
-        let pos = this.getTileCoords()
-        let val = this.getTileVal()
+        let pos = this.newTileCoords()
+        let val = this.newTileVal()
         this.board[pos.x][pos.y] = val
         drawTile(pos.x, pos.y, val)
     }
 
-    getTileCoords = () => {
+    newTileCoords = () => {
         let newCoords = {}
         do {
             newCoords.x = parseInt(Math.random() * 4)
@@ -46,7 +46,7 @@ export default class Game {
         return newCoords
     }
 
-    getTileVal = () => {
+    newTileVal = () => {
         let val = Math.random()
         val >= 9 ? val = 4 : val = 2
         return val
@@ -55,6 +55,10 @@ export default class Game {
     start = () => {
         this.newTile()
         this.newTile()
+    }
+
+    end = () => {
+        document.getElementById('gameover-canvas').style.display = 'inline'
     }
 
     up = () => { 

@@ -8,8 +8,8 @@ import { updateBoard, updateScore } from '../actions/gameActionCreator'
 import { noMove } from '../game/GameHelpers'
 
 class BoardContainer extends Component {
-    componentDidMount(){ //hard coded & will need to change if I implement various board sizes
-        let canvas = document.getElementById('game-board')
+    componentDidMount = () => { //hard coded & will need to change if I implement various board sizes
+        let canvas = document.getElementById('gameboard-canvas')
         if (canvas.getContext){
             let ctx = canvas.getContext('2d')
             ctx.fillStyle = colors.boardBackground
@@ -26,9 +26,27 @@ class BoardContainer extends Component {
                 a += 122
             }
         }
+
+       canvas = document.getElementById('gameover-canvas')
+        if (canvas.getContext){
+            let ctx = canvas.getContext('2d')
+            ctx.fillStyle = "rgba(238, 232, 213, .65)"
+            roundedRect(ctx, 0, 0, 500, 500, 5)
+
+            ctx.font = '72px sans-serif'
+            ctx.textAlign = 'center'
+            ctx.textBaseline = 'middle'
+            ctx.fillStyle = colors.darkText
+            ctx.fillText('Game Over', 250, 250, 500)
+        }
+
         const game = new Game()
         window.addEventListener('keypress', event => {this.handleKeyPress(event, game)})
         game.start()
+    }
+
+    componentDidUpdate = () => {
+
     }
 
     handleKeyPress = (e, game) => {
@@ -40,7 +58,9 @@ class BoardContainer extends Component {
                 game.up()
                 this.props.updateBoard(game.board)
                 this.props.updateScore(game.score)
-                noMove(game.board)
+                if (noMove(game.board)) {
+                    game.end()
+                }
                 break
             case 115:
             case 106:
@@ -48,7 +68,9 @@ class BoardContainer extends Component {
                 game.down()
                 this.props.updateBoard(game.board)
                 this.props.updateScore(game.score)
-                noMove(game.board)
+                if (noMove(game.board)) {
+                    game.end()
+                }
                 break
             case 97:
             case 104:
@@ -56,7 +78,9 @@ class BoardContainer extends Component {
                 game.left()
                 this.props.updateBoard(game.board)
                 this.props.updateScore(game.score)
-                noMove(game.board)
+                if (noMove(game.board)) {
+                    game.end()
+                }
                 break
             case 100:
             case 108:
@@ -64,7 +88,9 @@ class BoardContainer extends Component {
                 game.right()
                 this.props.updateBoard(game.board)
                 this.props.updateScore(game.score)
-                noMove(game.board)
+                if (noMove(game.board)) {
+                    game.end()
+                }
                 break
             default:
                 break
