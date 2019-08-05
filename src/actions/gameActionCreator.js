@@ -11,3 +11,19 @@ export function updateScore(score){
         payload: score
     }
 }
+
+export function fetchScores(){
+    return (dispatch) => {
+        dispatch({ type: 'START_SCORE_FETCH' })
+        return fetch('localhost:3000/game')
+        .then(r => r.json())
+        .then(game => dispatch({ type: 'ADD_GAME', payload: game }))
+    }
+}
+
+/* export function pushScore(score){
+    return (dispatch) => {
+        dispatch({type: 'START_SCORE_PUSH'})
+        return push('localhost:3000/game')
+    }
+} */
