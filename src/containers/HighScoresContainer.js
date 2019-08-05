@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchScores } from '../redux/actions/gameActionCreator'
+import { fetchScores, clearHighScores } from '../redux/actions/gameActionCreator'
 
 class HighScoresContainer extends Component {
   componentDidMount = () => {
-    fetchScores()
+    this.props.clearHighScores()
+    this.props.fetchScores()
   }
 
-  displayGames = () => {
-    this.props.games.map(game => {
-      return <p>{game.score}</p>
-    })
-  }
   render(){
     return(
       <div className='highScores'>
-        <h3>Welcome to the Mother Fucking High Scores Container!</h3>
-        {/* <p>{this.displayGames()}</p> */}
+        <h3>Welcome to the Mother Flippin High Scores Container!</h3>
+        {this.props.games.map(game => (
+          <div key={game.id}>
+            <p>Score: {game.score}</p>
+          </div>
+        ))}
       </div>
     )
 
@@ -30,4 +30,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { fetchScores })(HighScoresContainer)
+export default connect(mapStateToProps, { fetchScores, clearHighScores })(HighScoresContainer)

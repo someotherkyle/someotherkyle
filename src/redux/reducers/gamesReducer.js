@@ -1,7 +1,6 @@
 const initialState = {
     board: [],
     score: 0,
-    loading: false,
     games: []
 }
 export default function gameReducer(state = initialState, action){
@@ -18,22 +17,19 @@ export default function gameReducer(state = initialState, action){
                 score: [action.payload]
             }
 
-        case 'START_SCORE_FETCH':
-            console.log('start score fetch in reducer')
-            return { 
-                ...state, 
-                loading: true 
+        case 'CLEAR_SCORES':
+            return {
+                ...state,
+                games: []
             }
 
-        case 'ADD_GAME':
-            console.log(action)
+        case 'ADD_GAMES':
             return {
                 ...state,
                 games: [
                     ...state.games,
-                    action.game
+                    action.payload
                 ],
-                loading: false
             }
 
         default:
