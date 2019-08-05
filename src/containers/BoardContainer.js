@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import Board from '../components/Board'
 import colors from '../colors'
 import { connect } from 'react-redux'
-import { roundedRect } from '../actions/canvas'
-import Game from '../actions/Game'
+import { roundedRect } from '../game/canvas'
+import Game from '../game/Game'
 import { updateBoard, updateScore } from '../actions/gameActionCreator'
 
 class BoardContainer extends Component {
