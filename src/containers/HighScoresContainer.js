@@ -26,7 +26,7 @@ class HighScoresContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    games: state.game.games
+    games: state.scores.games
   }
 }
 

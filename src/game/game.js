@@ -4,7 +4,7 @@ export const newTile = (board) => {
   return { x: pos.x, y: pos.y, val: val }
 }
 
-export const newTileCoords = (board) => {
+const newTileCoords = (board) => {
   let newCoords = {}
   do {
     newCoords.x = parseInt(Math.random() * 4)
@@ -13,7 +13,7 @@ export const newTileCoords = (board) => {
   return newCoords
 }
 
-export const newTileVal = () => {
+const newTileVal = () => {
   let val = Math.random()
   val >= 9 ? val = 4 : val = 2
   return val

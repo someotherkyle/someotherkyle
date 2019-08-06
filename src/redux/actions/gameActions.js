@@ -18,6 +18,19 @@ export const changePlayState = () => {
   }
 }
 
+export const listenerAttached = () => {
+  return {
+    type: 'LISTENER_ATTACHED'
+  }
+}
+
+export const updateName = name => {
+  return {
+    type: 'UPDATE_NAME',
+    payload: name
+  }
+}
+
 export const updateScore = score => {
     return {
         type: 'UPDATE_SCORE',

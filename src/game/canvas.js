@@ -49,7 +49,7 @@ export const drawGameOver = () => {
   }
 }
 
-export const clearTiles = () => {
+const clearTiles = () => {
   let canvas = document.getElementById('tile-canvas')
   if (canvas.getContext){
     let ctx = canvas.getContext('2d')
@@ -58,6 +58,7 @@ export const clearTiles = () => {
 }
 
 export const drawTiles = board => {
+  clearTiles()
   for (let x = 0; x < 4; x++){
     for (let y = 0; y < 4; y++){
       if (board[x][y] !== 0) drawTile(x, y, board[x][y])
