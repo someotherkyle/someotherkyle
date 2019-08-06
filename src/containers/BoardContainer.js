@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Board from '../components/Board'
 import { connect } from 'react-redux'
 import * as game from '../game/game'
-import { updateBoard, updateScore, setName, changePlayState, listenerAttached } from '../redux/actions/gameActions'
+import { updateBoard, updateScore, setName, changePlayState, toggleListener, updateName } from '../redux/actions/gameActions'
 import { pushScore } from '../redux/actions/scoresActions'
 import * as canvas from '../game/canvas'
 
@@ -43,7 +43,13 @@ class BoardContainer extends Component {
         break
     }
   }
-
+  
+  handleInputClick = e => {
+   if (this.props.game.listenerAttached){
+    window.removeEventListener('keypress', event => {this.handleKeyPress(event)})
+    this.props.toggleListener()
+   }
+  }
   up = () => { 
     let board = this.props.game.board
     let score = this.props.game.score
@@ -181,7 +187,7 @@ class BoardContainer extends Component {
     if (this.props.game.ongoing){
       if (!this.props.game.listenerAttached) {
         window.addEventListener('keypress', event => {this.handleKeyPress(event)})
-        this.props.listenerAttached()
+        this.props.toggleListener()
       } 
       canvas.drawTiles(this.props.game.board)
     } else {
@@ -198,14 +204,19 @@ class BoardContainer extends Component {
       canvas.drawTiles(this.props.game.board)
       if (!this.props.game.listenerAttached) {
         window.addEventListener('keypress', event => {this.handleKeyPress(event)})
-        this.props.listenerAttached()
+        this.props.toggleListener()
       } 
     }
   }
   
   render(){
     return(
-      <Board />
+      <div className='board-wrapper'>
+        <input type='text' value={this.props.game.playerName} onClick={this.handleInputClick} onChange={e => this.params.updateName(e.target.value)} />
+        <button value="New Game" />
+        <Board />
+        <p>Score: {this.props.game.score}</p>
+      </div>
     )
   }
 }
@@ -216,4 +227,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateBoard, updateScore, setName, changePlayState, listenerAttached, pushScore })(BoardContainer)
+export default connect(mapStateToProps, { updateBoard, updateScore, setName, changePlayState, toggleListener , pushScore, updateName })(BoardContainer)

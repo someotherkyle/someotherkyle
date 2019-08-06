@@ -8,7 +8,7 @@ const initialState = {
   ],
   score: 0,
   listenerAttached: false,
-  playerName: 'placeholder for now'
+  playerName: 'name?'
 }
 export default function gameReducer(state = initialState, action){
   switch(action.type){
@@ -30,10 +30,10 @@ export default function gameReducer(state = initialState, action){
         ongoing: !state.ongoing
       }
 
-    case 'LISTENER_ATTACHED':
+    case 'TOGGLE_LISTENER':
       return {
         ...state,
-        listenerAttached: true
+        listenerAttached: !state.listenerAttached
       }
     
     case 'UPDATE_NAME':

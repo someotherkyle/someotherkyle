@@ -18,9 +18,9 @@ export const changePlayState = () => {
   }
 }
 
-export const listenerAttached = () => {
+export const toggleListener = () => {
   return {
-    type: 'LISTENER_ATTACHED'
+    type: 'TOGGLE_LISTENER'
   }
 }
 

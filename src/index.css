@@ -1,9 +1,4 @@
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 1080px;
-  margin: 0 auto;
   background-color: rgb(253, 246, 227);
   color: rgb(101, 123, 131);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -21,12 +16,32 @@ a {
   margin: 15px;
 }
 
-#board-div {
+.board-wrapper {
   width: 500px;
   margin: 5% auto;
 }
 
-canvas {
+.board-wrapper input {
+  width: 200px;
+  height: 30px;
+  margin: 25px 25px 25px 0;
+  padding: 0;
+}
+
+.board-wrapper button {
+  width: 200px;
+  margin: 25px 0 25px 25px;
+  height: 30px;
+  padding: 0;
+}
+
+#board-div {
+  width: 500px;
+  height: 500px;
+  margin: 5% auto;
+}
+
+#board-div canvas {
   position: absolute;
 }
 
