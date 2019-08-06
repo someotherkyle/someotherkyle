@@ -27,7 +27,3 @@ a {
 canvas {
   position: absolute;
 }
-
-#gameover-canvas {
-  display: none;
-}

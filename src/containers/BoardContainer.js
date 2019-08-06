@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Board from '../components/Board'
 import { connect } from 'react-redux'
-import * as game from '../game/game'
+import { canMoveUp, canMoveDown, canMoveRight, canMoveLeft, clearShotVert, clearShotHoriz, newTile } from '../game/game'
 import { updateBoard, updateScore, setName, changePlayState } from '../redux/actions/gameActions'
 import * as canvas from '../game/canvas'
 
@@ -20,33 +20,21 @@ class BoardContainer extends Component {
       case 107:
       case 38:
         this.up()
-        if (game.noMove(this.props.game.board)) {
-          game.end()
-        }
         break
       case 115:
       case 106:
       case 40:
         this.down()
-        if (game.noMove(this.props.game.board)) {
-          game.end()
-        }
         break
       case 97:
       case 104:
       case 37:
         this.left()
-        if (game.noMove(this.props.game.board)) {
-          game.end()
-        }
         break
       case 100:
       case 108:
       case 39:
         this.right()
-        if (game.noMove(this.props.game.board)) {
-          game.end()
-        }
         break
       default:
         break
@@ -57,7 +45,7 @@ class BoardContainer extends Component {
     let board = this.props.game.board
     let score = this.props.game.score
     let eligible = eligibility
-    if (!game.canMoveUp(board)){
+    if (!canMoveUp(board)){
       return false
     }
     for (let x = 0; x < 4; x++){
@@ -68,7 +56,7 @@ class BoardContainer extends Component {
               board[x][y1] = board[x][y]
               this.board[x][y] = 0
               break
-            } else if (board[x][y] === board[x][y1] && game.clearShotVert(x, y1, y, board) && eligible[x][y1]){
+            } else if (board[x][y] === board[x][y1] && clearShotVert(x, y1, y, board) && eligible[x][y1]){
               board[x][y1] += board[x][y]
               eligible[x][y1] = false
               score += this.board[x][y1]
@@ -79,16 +67,18 @@ class BoardContainer extends Component {
         }
       }
     }
-    let tile = game.newTile(board)
+    let tile = newTile(board)
     board[tile.x][tile.y] = tile.val
     this.props.updateBoard(board)
+    this.props.updateScore(score)
+    canvas.drawTiles(board)
   }
 
   down = () => {
     let board = this.props.game.board
     let score = this.props.game.score
     let eligible = eligibility
-    if (!game.canMoveDown(board)){
+    if (!canMoveDown(board)){
       return false
     }
     for (let x = 0; x < 4; x++){
@@ -99,7 +89,7 @@ class BoardContainer extends Component {
               board[x][y1] = board[x][y]
               board[x][y] = 0
               break
-            } else if (board[x][y] === board[x][y1] && game.clearShotVert(x, y, y1, board) && eligible[x][y1]){
+            } else if (board[x][y] === board[x][y1] && clearShotVert(x, y, y1, board) && eligible[x][y1]){
               board[x][y1] += board[x][y]
               eligible[x][y1] = false
               score += board[x][y1]
@@ -110,16 +100,18 @@ class BoardContainer extends Component {
         }
       }
     }
-    let tile = game.newTile(board)
+    let tile = newTile(board)
     board[tile.x][tile.y] = tile.val
     this.props.updateBoard(board)
+    this.props.updateScore(score)
+    canvas.drawTiles(board)
   }
 
   left = () => {
     let board = this.props.game.board
     let score = this.props.game.score
     let eligible = eligibility
-    if (!game.canMoveLeft(board)){
+    if (!canMoveLeft(board)){
       return false
     }
     for (let y = 0; y < 4; y++){
@@ -130,7 +122,7 @@ class BoardContainer extends Component {
               board[x1][y] = board[x][y]
               board[x][y] = 0
               break
-            } else if (board[x][y] === board[x1][y] && game.clearShotHoriz(y, x1, x, board) && eligible[x1][y]){
+            } else if (board[x][y] === board[x1][y] && clearShotHoriz(y, x1, x, board) && eligible[x1][y]){
               board[x1][y] += board[x][y]
               eligible[x1][y] = false
               score += board[x1][y]
@@ -141,16 +133,18 @@ class BoardContainer extends Component {
         }
       }
     }
-    let tile = game.newTile(board)
+    let tile = newTile(board)
     board[tile.x][tile.y] = tile.val
     this.props.updateBoard(board)
+    this.props.updateScore(score)
+    canvas.drawTiles(board)
   }
 
   right = () => {
     let board = this.props.game.board
     let score = this.props.game.score
     let eligible = eligibility
-    if (!game.canMoveRight(board)){
+    if (!canMoveRight(board)){
       return false
     }
     for (let y = 0; y < 4; y++){
@@ -161,7 +155,7 @@ class BoardContainer extends Component {
               board[x1][y] = board[x][y]
               board[x][y] = 0
               break
-            } else if (board[x][y] === board[x1][y] && game.clearShotHoriz(y, x, x1, board) && eligible[x1][y]){
+            } else if (board[x][y] === board[x1][y] && clearShotHoriz(y, x, x1, board) && eligible[x1][y]){
               board[x1][y] += board[x][y]
               eligible[x1][y] = false
               score += board[x1][y]
@@ -172,9 +166,11 @@ class BoardContainer extends Component {
         }
       }
     }
-    let tile = game.newTile(board)
+    let tile = newTile(board)
     board[tile.x][tile.y] = tile.val
     this.props.updateBoard(board)
+    this.props.updateScore(score)
+    canvas.drawTiles(board)
   }
 
   componentDidMount = () => { //hard coded & will need to change if I implement various board sizes
@@ -186,10 +182,10 @@ class BoardContainer extends Component {
       this.props.changePlayState()
       let board = this.props.game.board
 
-      let tile = game.newTile(board)
+      let tile = newTile(board)
       board[tile.x][tile.y] = tile.val
 
-      tile = game.newTile(board)
+      tile = newTile(board)
       board[tile.x][tile.y] = tile.val
 
       this.props.updateBoard(board)
@@ -198,11 +194,6 @@ class BoardContainer extends Component {
     }
   }
   
-  componentDidUpdate = () => {
-
-  }
-
-
   render(){
     return(
       <Board />

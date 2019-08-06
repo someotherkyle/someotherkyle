@@ -13,13 +13,13 @@ export default function gameReducer(state = initialState, action){
     case 'UPDATE_BOARD':
       return {
         ...state,
-        board: [action.payload]
+        board: action.payload
     }
 
     case 'UPDATE_SCORE':
       return {
         ...state,
-        score: [action.payload]
+        score: action.payload
       }
 
     case 'CHANGE_PLAYSTATE':
