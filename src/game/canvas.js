@@ -49,6 +49,22 @@ export const drawGameOver = () => {
   }
 }
 
+export const clearTiles = () => {
+  let canvas = document.getElementById('tile-canvas')
+  if (canvas.getContext){
+    let ctx = canvas.getContext('2d')
+    ctx.clearRect(0, 0, 500, 500)
+  }
+}
+
+export const drawTiles = board => {
+  for (let x = 0; x < 4; x++){
+    for (let y = 0; y < 4; y++){
+      if (board[x][y] !== 0) drawTile(x, y, board[x][y])
+    }
+  }
+}
+
 const convertIndexToCoords = (x, y) => {
     let coords = { x: -1, y: -1 }
     coords.x = (x * 122) + 12
@@ -56,9 +72,6 @@ const convertIndexToCoords = (x, y) => {
     return coords
 }
 
-export const drawTiles = board => {
-
-}
 const drawTile = (x, y, val) => {
     const coords = convertIndexToCoords(x, y)
     const tileColor = val > 4096 ? "tile 4096" : "tile" + val.toString()

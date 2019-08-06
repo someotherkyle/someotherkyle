@@ -12,11 +12,10 @@ export const setName = name => {
   }
 }
 
-export const newGame = board => {
-    return {
-        type: 'UPDATE_BOARD',
-        payload: board
-    }
+export const changePlayState = () => {
+  return {
+    type: 'CHANGE_PLAYSTATE'
+  }
 }
 
 export const updateScore = score => {

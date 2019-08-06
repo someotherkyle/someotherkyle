@@ -1,6 +1,11 @@
 const initialState = {
   ongoing: false,
-  board: [],
+  board: [
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0]
+  ],
   score: 0,
 }
 export default function gameReducer(state = initialState, action){
@@ -9,7 +14,7 @@ export default function gameReducer(state = initialState, action){
       return {
         ...state,
         board: [action.payload]
-  }
+    }
 
     case 'UPDATE_SCORE':
       return {
@@ -17,6 +22,11 @@ export default function gameReducer(state = initialState, action){
         score: [action.payload]
       }
 
+    case 'CHANGE_PLAYSTATE':
+      return {
+        ...state,
+        ongoing: !state.ongoing
+      }
     default:
      return state
     }
