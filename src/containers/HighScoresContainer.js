@@ -11,12 +11,25 @@ class HighScoresContainer extends Component {
   render(){
     return(
       <div className='highScores'>
-        <h3>Welcome to the Mother Flippin High Scores Container!</h3>
-        {this.props.games.map(game => (
-          <div key={game.id}>
-            <p>Score: {game.score}</p>
-          </div>
-        ))}
+        <h3>High Scores!</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Player</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.games.map(game => (
+              <tr key={game.id}>
+                <td>{game.created_at.substring(0, 10)}</td>
+                <td>{game.player_name}</td>
+                <td>{game.score}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     )
 
