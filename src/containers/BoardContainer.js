@@ -1,116 +1,88 @@
 import React, {Component} from 'react'
 import Board from '../components/Board'
-import colors from '../colors'
 import { connect } from 'react-redux'
-import { roundedRect } from '../game/canvas'
-import Game from '../game/Game'
-import { updateBoard, updateScore } from '../redux/actions/gameActions'
-import { noMove } from '../game/GameHelpers'
+import * as game from '../game/game'
+import { updateBoard, updateScore, setName } from '../redux/actions/gameActions'
+import * as canvas from '../game/canvas'
 
 class BoardContainer extends Component {
-    componentDidMount = () => { //hard coded & will need to change if I implement various board sizes
-        //beginning grande refactor... hold on to your butts.
-
-
-/*         let canvas = document.getElementById('gameboard-canvas')
-        if (canvas.getContext){
-            let ctx = canvas.getContext('2d')
-            ctx.fillStyle = colors.boardBackground
-            roundedRect(ctx, 0, 0, 500, 500, 5)
-
-            let a = 12
-            for (let i = 0; i <= 4; i++){
-                let b = 12
-                for (let j = 0; j <=4; j++){
-                    ctx.fillStyle = colors.emptyTileBackground
-                    roundedRect(ctx, a, b, 110, 110, 5)
-                    b += 122
-                }
-                a += 122
-            }
+  handleKeyPress = (e) => {
+    e.preventDefault()
+    switch (e.keyCode) {
+      case 119: 
+      case 107:
+      case 38:
+        this.props.game.up()
+        this.props.updateBoard(this.props.game.board)
+        this.props.updateScore(this.props.game.score)
+        if (game.noMove(this.props.game.board)) {
+          this.props.game.end()
         }
-
-       canvas = document.getElementById('gameover-canvas')
-        if (canvas.getContext){
-            let ctx = canvas.getContext('2d')
-            ctx.fillStyle = "rgba(238, 232, 213, .65)"
-            roundedRect(ctx, 0, 0, 500, 500, 5)
-
-            ctx.font = '72px sans-serif'
-            ctx.textAlign = 'center'
-            ctx.textBaseline = 'middle'
-            ctx.fillStyle = colors.darkText
-            ctx.fillText('Game Over', 250, 250, 500)
+        break
+      case 115:
+      case 106:
+      case 40:
+        this.props.game.down()
+        this.props.updateBoard(this.props.game.board)
+        this.props.updateScore(this.props.game.score)
+        if (game.noMove(this.props.game.board)) {
+          this.props.game.end()
         }
-
-        const game = new Game()
-        window.addEventListener('keypress', event => {this.handleKeyPress(event, game)})
-        game.start()
-        this.props.updateBoard(game.board) */
+        break
+      case 97:
+      case 104:
+      case 37:
+        this.props.game.left()
+        this.props.updateBoard(this.props.game.board)
+        this.props.updateScore(this.props.game.score)
+        if (game.noMove(this.props.game.board)) {
+          this.props.game.end()
+        }
+        break
+      case 100:
+      case 108:
+      case 39:
+        this.props.game.right()
+        this.props.updateBoard(this.props.game.board)
+        this.props.updateScore(this.props.game.score)
+        if (game.noMove(this.props.game.board)) {
+          this.props.game.end()
+        }
+        break
+      default:
+        break
     }
+  }
+
+  componentDidMount = () => { //hard coded & will need to change if I implement various board sizes
+    canvas.drawBoard()
+    if (this.props.game.ongoing){
+      window.addEventListener('keypress', event => {this.handleKeyPress(event)})
+
+    } else {
+
+    }
+/*         const this.props.game.= new Game()
+        this.props.game.start()
+        this.props.updateBoard(this.props.game.board) */
+  }
+  
     componentDidUpdate = () => {
-        this.props.updateBoard(this.game.board)
+      this.props.updateBoard(this.props.game.board)
     }
 
-    handleKeyPress = (e, game) => {
-        e.preventDefault()
-        switch (e.keyCode) {
-            case 119: 
-            case 107:
-            case 38:
-                game.up()
-                this.props.updateBoard(game.board)
-                this.props.updateScore(game.score)
-                if (noMove(game.board)) {
-                    game.end()
-                }
-                break
-            case 115:
-            case 106:
-            case 40:
-                game.down()
-                this.props.updateBoard(game.board)
-                this.props.updateScore(game.score)
-                if (noMove(game.board)) {
-                    game.end()
-                }
-                break
-            case 97:
-            case 104:
-            case 37:
-                game.left()
-                this.props.updateBoard(game.board)
-                this.props.updateScore(game.score)
-                if (noMove(game.board)) {
-                    game.end()
-                }
-                break
-            case 100:
-            case 108:
-            case 39:
-                game.right()
-                this.props.updateBoard(game.board)
-                this.props.updateScore(game.score)
-                if (noMove(game.board)) {
-                    game.end()
-                }
-                break
-            default:
-                break
-        }
-    }
 
-    render(){
-        return(
-            <Board />
-        )
-    }
+  render(){
+    return(
+      <Board />
+    )
+  }
 }
 
 const mapStateToProps = state => {
-    return {
-        game: state.game 
-    }
+  return {
+    game: state.game
+  }
 }
 
-export default connect(mapStateToProps, { updateBoard, updateScore })(BoardContainer)
+export default connect(mapStateToProps, { updateBoard, updateScore, setName })(BoardContainer)

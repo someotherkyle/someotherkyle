@@ -1,8 +1,15 @@
 export const updateBoard = board => {
-    return {
-        type: 'UPDATE_BOARD',
-        payload: board
-    }
+  return {
+    type: 'UPDATE_BOARD',
+    payload: board
+  }
+}
+
+export const setName = name => {
+  return {
+    type: 'SET_NAME',
+    payload: name
+  }
 }
 
 export const newGame = board => {

@@ -14,6 +14,41 @@ export const roundedRect = (ctx, x, y, width, height, radius) => {
     ctx.fill()
 }
 
+export const drawBoard = () => {
+  let canvas = document.getElementById('gameboard-canvas')
+  if (canvas.getContext){
+    let ctx = canvas.getContext('2d')
+    ctx.fillStyle = colors.boardBackground
+    roundedRect(ctx, 0, 0, 500, 500, 5)
+
+    let a = 12
+    for (let i = 0; i <= 4; i++){
+      let b = 12
+      for (let j = 0; j <=4; j++){
+        ctx.fillStyle = colors.emptyTileBackground
+        roundedRect(ctx, a, b, 110, 110, 5)
+        b += 122
+      }
+      a += 122
+    }
+  }
+}
+
+export const drawGameOver = () => {
+  let canvas = document.getElementById('gameover-canvas')
+  if (canvas.getContext){
+    let ctx = canvas.getContext('2d')
+    ctx.fillStyle = "rgba(238, 232, 213, .65)"
+    roundedRect(ctx, 0, 0, 500, 500, 5)
+
+    ctx.font = '72px sans-serif'
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.fillStyle = colors.darkText
+    ctx.fillText('Game Over', 250, 250, 500)
+  }
+}
+
 const convertIndexToCoords = (x, y) => {
     let coords = { x: -1, y: -1 }
     coords.x = (x * 122) + 12
@@ -21,8 +56,10 @@ const convertIndexToCoords = (x, y) => {
     return coords
 }
 
+export const drawTiles = board => {
 
-export const drawTile = (x, y, val) => {
+}
+const drawTile = (x, y, val) => {
     const coords = convertIndexToCoords(x, y)
     const tileColor = val > 4096 ? "tile 4096" : "tile" + val.toString()
     const textColor = val === 2? 'darkText' : 'lightText'
@@ -38,14 +75,5 @@ export const drawTile = (x, y, val) => {
 
         ctx.fillStyle = colors[textColor]
         ctx.fillText(val, coords.x + 55, coords.y + 55, 110)
-    }
-}
-
-export const clearTile = (x, y) => {
-    const canvas = document.getElementById('tile-canvas')
-    const coords = convertIndexToCoords(x, y)
-    if (canvas.getContext){
-        let ctx = canvas.getContext('2d')
-        ctx.clearRect(coords.x, coords.y, 110, 110)
     }
 }

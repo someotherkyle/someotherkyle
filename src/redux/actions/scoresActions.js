@@ -13,9 +13,7 @@ export const fetchScores = () => dispatch =>  {
             )
         }
 
-/* export function pushScore(score){
-    return (dispatch) => {
-        dispatch({type: 'START_SCORE_PUSH'})
-        return push('localhost:3000/game')
-    }
-} */
+export const pushScore = () => dispatch => {
+  return fetch('http://localhost:3001/games')
+
+}
