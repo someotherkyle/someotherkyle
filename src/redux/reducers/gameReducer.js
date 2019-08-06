@@ -8,7 +8,7 @@ const initialState = {
   ],
   score: 0,
   listenerAttached: false,
-  name: ''
+  playerName: 'placeholder for now'
 }
 export default function gameReducer(state = initialState, action){
   switch(action.type){
@@ -39,7 +39,7 @@ export default function gameReducer(state = initialState, action){
     case 'UPDATE_NAME':
       return {
         ...state,
-        name: action.payload
+        playerName: action.payload
       }
     default:
      return state

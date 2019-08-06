@@ -3,6 +3,7 @@ import Board from '../components/Board'
 import { connect } from 'react-redux'
 import * as game from '../game/game'
 import { updateBoard, updateScore, setName, changePlayState, listenerAttached } from '../redux/actions/gameActions'
+import { pushScore } from '../redux/actions/scoresActions'
 import * as canvas from '../game/canvas'
 
 const eligibility = () =>{
@@ -167,6 +168,11 @@ class BoardContainer extends Component {
     canvas.drawTiles(board)
     if (game.noMove(board)){
       canvas.drawGameOver()
+      let gameInfo = {
+        score: this.props.game.score,
+        player_name: this.props.game.playerName
+      }
+      this.props.pushScore(gameInfo)
     }
   } 
 
@@ -210,4 +216,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateBoard, updateScore, setName, changePlayState, listenerAttached })(BoardContainer)
+export default connect(mapStateToProps, { updateBoard, updateScore, setName, changePlayState, listenerAttached, pushScore })(BoardContainer)
