@@ -4,12 +4,13 @@ import colors from '../colors'
 import { connect } from 'react-redux'
 import { roundedRect } from '../game/canvas'
 import Game from '../game/Game'
-import { updateBoard, updateScore } from '../redux/actions/gameActionCreator'
+import { updateBoard, updateScore } from '../redux/actions/gameActions'
 import { noMove } from '../game/GameHelpers'
 
 class BoardContainer extends Component {
     componentDidMount = () => { //hard coded & will need to change if I implement various board sizes
         //beginning grande refactor... hold on to your butts.
+
 
 /*         let canvas = document.getElementById('gameboard-canvas')
         if (canvas.getContext){
@@ -26,7 +27,7 @@ class BoardContainer extends Component {
                     b += 122
                 }
                 a += 122
-            } */
+            }
         }
 
        canvas = document.getElementById('gameover-canvas')
@@ -45,7 +46,7 @@ class BoardContainer extends Component {
         const game = new Game()
         window.addEventListener('keypress', event => {this.handleKeyPress(event, game)})
         game.start()
-        this.props.updateBoard(game.board)
+        this.props.updateBoard(game.board) */
     }
     componentDidUpdate = () => {
         this.props.updateBoard(this.game.board)
@@ -108,7 +109,7 @@ class BoardContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        board: state.board 
+        game: state.game 
     }
 }
 

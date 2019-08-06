@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchScores, clearHighScores } from '../redux/actions/gameActionCreator'
+import { fetchScores, clearHighScores } from '../redux/actions/scoresActions'
 
 class HighScoresContainer extends Component {
   componentDidMount = () => {
