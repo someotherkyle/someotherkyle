@@ -9,7 +9,9 @@ import { noMove } from '../game/GameHelpers'
 
 class BoardContainer extends Component {
     componentDidMount = () => { //hard coded & will need to change if I implement various board sizes
-        let canvas = document.getElementById('gameboard-canvas')
+        //beginning grande refactor... hold on to your butts.
+
+/*         let canvas = document.getElementById('gameboard-canvas')
         if (canvas.getContext){
             let ctx = canvas.getContext('2d')
             ctx.fillStyle = colors.boardBackground
@@ -24,7 +26,7 @@ class BoardContainer extends Component {
                     b += 122
                 }
                 a += 122
-            }
+            } */
         }
 
        canvas = document.getElementById('gameover-canvas')
