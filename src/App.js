@@ -4,6 +4,7 @@ import {
   Route
 } from 'react-router-dom'
 import NavBar from './components/NavBar'
+import About from './components/About'
 import BoardContainer from './containers/BoardContainer'
 import HighScoresContainer from './containers/HighScoresContainer'
 
@@ -12,7 +13,8 @@ function App() {
     <Router>
       <div className='App'>
         <NavBar />
-        <Route exact path='/' component={BoardContainer} />
+        <Route exact path='/' component={About} />
+        <Route exact path='/play' component={BoardContainer} />
         <Route exact path='/highscores' component={HighScoresContainer} />
       </div>
     </Router>

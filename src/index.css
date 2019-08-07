@@ -1,4 +1,8 @@
 body {
+  display: inline;
+  width: 1080px;
+  background-image: url(/static/media/RWK6EMa.7e6c8854.jpg);
+  background-position-x: -1000px;
   background-color: rgb(253, 246, 227);
   color: rgb(101, 123, 131);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -7,18 +11,41 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+h1#name {
+  color: rgb(51, 51, 58);
+  text-align: right;
+  font-family: 'Rock Salt', cursive;
+  font-size: 2.5em;
+  margin-top: 9%;
+  margin-right: 16%;
+}
+
+h1#i-move-pix {
+  margin-top: 53%;
+  padding-left: 1%;
+  font-family: 'Beth Ellen', cursive;
+  text-align: left;
+  font-size: 4em;
+   color: rgb(185, 177, 166)
+}
 .navbar {
-  margin: 0 auto;
+  height: 80px;
+  background: rgba(85, 79, 78, .7);
+  text-align: center;
 }
 a {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3em;
   text-decoration: none;
-  color: rgb(38, 139, 210);
-  margin: 15px;
+  color: rgb(185, 177, 166);
+  margin: 45px;
 }
 
 .board-wrapper {
   width: 500px;
   margin: 5% auto;
+  padding: 0;
 }
 
 .board-wrapper input {
