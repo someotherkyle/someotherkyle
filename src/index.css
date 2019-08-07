@@ -1,45 +1,75 @@
 body {
-  display: inline;
-  width: 1080px;
-  background-image: url('resources/RWK6EMa.jpg');
-  background-position-x: -1000px;
-  background-color: rgb(253, 246, 227);
-  color: rgb(101, 123, 131);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  width: 100%;
+  padding: 0;
+  border: none;
+  margin: 0;
+
+  background-image: url('resources/bg.svg');
+  background-size: 2.5em;
+  background-repeat: repeat;
+  background-color: rgb(7, 54, 66);
+
+  font-family: "Fira Sans";
+  color: rgb(185, 177, 166);
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1#name {
-  color: rgb(51, 51, 58);
-  text-align: right;
-  font-family: 'Rock Salt', cursive;
-  font-size: 2.5em;
-  margin-top: 9%;
-  margin-right: 16%;
-}
-
-h1#i-move-pix {
-  margin-top: 53%;
-  padding-left: 1%;
-  font-family: 'Beth Ellen', cursive;
-  text-align: left;
-  font-size: 4em;
-   color: rgb(185, 177, 166)
-}
-.navbar {
-  height: 80px;
-  background: rgba(85, 79, 78, .7);
+.navbar-wrapper {
+  width: 100%;
+  background: rgba(0, 43, 54, .8);
   text-align: center;
 }
-a {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 3em;
+
+.navbar {
+  display: inline-block;
+  position: relative;
+  width: 1440px;
+  text-align: center;
+  padding: 1em;
+}
+
+.dropdown {
+  position: relative;
+  min-width: 200px;
+  min-height: 75px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+
+  margin: 0;
+  padding: 0;
+  min-width: 200px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.navbar a {
+  height: 75px;
+  padding: 1em;
+  margin: 0em 7em;
+
+  font-family: 'Rock Salt', cursive;
+  font-size: 1em;
   text-decoration: none;
   color: rgb(185, 177, 166);
-  margin: 45px;
+}
+
+h1 {
+  margin: 15px auto;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3em;
 }
 
 .board-wrapper {

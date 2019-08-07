@@ -12,7 +12,9 @@ function App() {
   return (
     <Router>
       <div className='App'>
-        <NavBar />
+        <div className='navbar-wrapper'>
+          <NavBar />
+        </div>
         <Route exact path='/' component={About} />
         <Route exact path='/play' component={BoardContainer} />
         <Route exact path='/highscores' component={HighScoresContainer} />

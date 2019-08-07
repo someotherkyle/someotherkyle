@@ -31,16 +31,5 @@ const colors = {
   tile1024: "rgb(181, 137, 0)",
   tile2048: "rgb(7, 54, 66)",
   tile4096: "rgb(0, 43, 54)",
-  auto1: 'rgb(50, 51, 58)',
-  auto2: 'rgb(185, 177, 166)',
-  auto3: 'rgb(43, 46, 54)',
-  auto4: 'rgb(128, 118, 110)',
-  auto5: 'rgb(85, 79, 78)',
-  auto6: 'rgb(135, 162, 160)',
-  auto7: 'rgb(93, 107, 108)',
-  auto8: 'rgb(64, 77, 78)',
-  auto9: 'rgb(84, 91, 108)',
-  auto0: 'rgb(157, 84, 71)',
-  auto10: 'rgb(140, 140, 164)'
 }
 export default colors
