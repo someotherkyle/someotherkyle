@@ -8,7 +8,8 @@ const initialState = {
   ],
   score: 0,
   listenerAttached: false,
-  playerName: 'name?'
+  listenerEnabled: false,
+  playerName: 'Enter Name'
 }
 export default function gameReducer(state = initialState, action){
   switch(action.type){
@@ -33,7 +34,12 @@ export default function gameReducer(state = initialState, action){
     case 'TOGGLE_LISTENER':
       return {
         ...state,
-        listenerAttached: !state.listenerAttached
+        listenerEnabled: action.payload
+      }
+    case 'ATTACH_LISTENER':
+      return {
+        ...state,
+        listenerAttached: true
       }
     
     case 'UPDATE_NAME':

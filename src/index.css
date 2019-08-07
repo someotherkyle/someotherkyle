@@ -1,7 +1,7 @@
 body {
   display: inline;
   width: 1080px;
-  background-image: url(/static/media/RWK6EMa.7e6c8854.jpg);
+  background-image: url('resources/RWK6EMa.jpg');
   background-position-x: -1000px;
   background-color: rgb(253, 246, 227);
   color: rgb(101, 123, 131);
@@ -46,6 +46,7 @@ a {
   width: 500px;
   margin: 5% auto;
   padding: 0;
+
 }
 
 .board-wrapper input {
@@ -53,6 +54,7 @@ a {
   height: 30px;
   margin: 25px 25px 25px 0;
   padding: 0;
+  border: none;
 }
 
 .board-wrapper button {
@@ -60,6 +62,7 @@ a {
   margin: 25px 0 25px 25px;
   height: 30px;
   padding: 0;
+  border: none;
 }
 
 #board-div {

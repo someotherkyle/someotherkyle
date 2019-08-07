@@ -18,9 +18,15 @@ export const changePlayState = () => {
   }
 }
 
-export const toggleListener = () => {
+export const toggleListener = status => {
   return {
-    type: 'TOGGLE_LISTENER'
+    type: 'TOGGLE_LISTENER',
+    payload: status
+  }
+}
+export const enableListener = () => {
+  return {
+    type: 'ATTACH_LISTENER'
   }
 }
 
