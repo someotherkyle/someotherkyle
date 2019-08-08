@@ -24,11 +24,6 @@ export const toggleListener = status => {
     payload: status
   }
 }
-export const enableListener = () => {
-  return {
-    type: 'ATTACH_LISTENER'
-  }
-}
 
 export const updateName = name => {
   return {

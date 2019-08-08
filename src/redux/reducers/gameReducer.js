@@ -7,7 +7,6 @@ const initialState = {
     [0, 0, 0, 0]
   ],
   score: 0,
-  listenerAttached: false,
   listenerEnabled: false,
   playerName: 'Enter Name'
 }
@@ -36,17 +35,13 @@ export default function gameReducer(state = initialState, action){
         ...state,
         listenerEnabled: action.payload
       }
-    case 'ATTACH_LISTENER':
-      return {
-        ...state,
-        listenerAttached: true
-      }
     
     case 'UPDATE_NAME':
       return {
         ...state,
         playerName: action.payload
       }
+
     default:
      return state
     }

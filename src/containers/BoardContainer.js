@@ -171,6 +171,30 @@ class BoardContainer extends Component {
     this.endMove(board, score)
   }
 
+  resetGame = e => {
+    e.preventDefault()
+    const board = [
+      [0,0,0,0],
+      [0,0,0,0],
+      [0,0,0,0],
+      [0,0,0,0]
+    ]
+    this.props.updateBoard(board)
+    this.props.updateScore(0)
+
+    this.initializeGame(board)
+
+    canvas.drawTiles(board)
+  }
+
+  initializeGame = board => {
+      let tile = game.newTile(board)
+      board[tile.x][tile.y] = tile.val
+
+      tile = game.newTile(board)
+      board[tile.x][tile.y] = tile.val
+  }
+
   endMove = (board, score) => {
     let tile = game.newTile(board)
     board[tile.x][tile.y] = tile.val
@@ -190,40 +214,30 @@ class BoardContainer extends Component {
   componentDidMount = () => { //hard coded & will need to change if I implement various board sizes
     canvas.drawBoard()
     if (this.props.game.ongoing){
-      if (!this.props.game.listenerAttached) {
-        window.addEventListener('keypress', event => {this.handleKeyPress(event)})
-        this.props.enableListener()
-      } 
+      window.addEventListener('keypress', event => {this.handleKeyPress(event)})
       canvas.drawTiles(this.props.game.board)
     } else {
       this.props.changePlayState()
       let board = this.props.game.board
 
-      let tile = game.newTile(board)
-      board[tile.x][tile.y] = tile.val
-
-      tile = game.newTile(board)
-      board[tile.x][tile.y] = tile.val
+      this.initializeGame(board)
 
       this.props.updateBoard(board)
       canvas.drawTiles(this.props.game.board)
-      if (!this.props.game.listenerAttached) {
-        window.addEventListener('keypress', event => {this.handleKeyPress(event)})
-        this.props.enableListener()
-      } 
+      window.addEventListener('keypress', event => {this.handleKeyPress(event)})
     }
   }
   
   render(){
     return(
       <div className='board-wrapper'>
+        <button onClick={e => this.resetGame(e)}>New Game</button> 
         <input type='text' value={this.props.game.playerName} onChange={e => this.props.updateName(e.target.value)} />
-        <button>New Game</button> 
+        <NavLink to='/highScores'>High Scores</NavLink>
         <div onMouseOver={e => this.handleMouseOver()} onMouseOut={e => this.handleMouseOut()}>
           <Board />
         </div>
         <p>Score: {this.props.game.score}</p>
-        <NavLink to='/highScores'>High Scores</NavLink>
       </div>
     )
   }
