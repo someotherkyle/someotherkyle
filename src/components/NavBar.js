@@ -14,7 +14,8 @@ const NavBar = () => {
           <div className='dropdown'>
             <NavLink to='/projects'>Projects</NavLink>
             <div className='dropdown-content'>
-              <NavLink to='/play'>Discount 2048</NavLink>
+              <NavLink to='/playdiscount2048'>2048 Tribute</NavLink>
+              <a href='http://someotherkyle-activity-tracker.herokuapp.com'>Activity Tracker</a>
             </div>
           </div>
           <NavLink to='/contact'>Contact Me</NavLink>

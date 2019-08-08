@@ -16,8 +16,8 @@ function App() {
           <NavBar />
         </div>
         <Route exact path='/' component={About} />
-        <Route exact path='/play' component={BoardContainer} />
-        <Route exact path='/highscores' component={HighScoresContainer} />
+        <Route exact path='/playdiscount2048' component={BoardContainer} />
+        <Route exact path='/playdiscount2048/highscores' component={HighScoresContainer} />
       </div>
     </Router>
   );

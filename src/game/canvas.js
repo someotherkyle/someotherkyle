@@ -49,6 +49,14 @@ export const drawGameOver = () => {
   }
 }
 
+export const clearGameOver = () => {
+  let canvas = document.getElementById('gameover-canvas')
+  if (canvas.getContext){
+    let ctx = canvas.getContext('2d')
+    ctx.clearRect(0, 0, 500, 500)
+  }
+}
+
 const clearTiles = () => {
   let canvas = document.getElementById('tile-canvas')
   if (canvas.getContext){

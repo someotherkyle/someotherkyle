@@ -8,12 +8,15 @@ class HighScoresContainer extends Component {
     this.props.fetchScores()
   }
 
-  sortTable = (e, n) => {
+  sortTableOnClick = (e, n) => {
     e.preventDefault()
+    this.sortTable(n)
+  }
 
+  sortTable = n => {
     let table = document.getElementById("scores-table")
     let switching = true
-    let dir = "asc"
+    let dir = "desc"
     let switchCount = 0;
     let shouldSwitch = false
     let i, x, y
@@ -55,8 +58,8 @@ class HighScoresContainer extends Component {
         switching = true;
         switchCount ++;
       } else {
-        if (switchCount === 0 && dir === "asc") {
-          dir = "desc";
+        if (switchCount === 0 && dir === "desc") {
+          dir = "asc";
           switching = true;
         }
       }
@@ -70,9 +73,9 @@ class HighScoresContainer extends Component {
         <table id='scores-table'>
           <thead>
             <tr>
-              <th onClick={e => this.sortTable(e, 0)}>Score</th>
-              <th onClick={e => this.sortTable(e, 1)}>Player</th>
-              <th onClick={e => this.sortTable(e, 2)}>Date</th>
+              <th onClick={e => this.sortTableOnClick(e, 0)}>Score</th>
+              <th onClick={e => this.sortTableOnClick(e, 1)}>Player</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
@@ -87,9 +90,7 @@ class HighScoresContainer extends Component {
         </table>
       </div>
     )
-
   }
-
 }
 
 const mapStateToProps = state => {

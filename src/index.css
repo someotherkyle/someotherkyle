@@ -4,7 +4,7 @@ body {
   border: none;
   margin: 0;
 
-  background-image: url('resources/bg.svg');
+  background-image: url(/static/media/bg.da255946.svg);
   background-size: 20em;
   background-repeat: repeat;
   background-color: rgb(7, 54, 66);
@@ -15,50 +15,38 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+em {
+  color: rgb(133, 153, 0);
+}
+a {
+  text-decoration: none;
+  color: rgb(203, 75, 22);
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
 .navbar-wrapper {
   width: 100%;
-  background: rgba(0, 43, 54, .8);
+  background: rgba(0, 43, 54, .9);
   text-align: center;
 }
 
 .navbar {
   display: inline-block;
   position: relative;
-  width: 1440px;
+  width: 1720px;
+  height: 40px;
   text-align: center;
   padding: 1em;
-}
-
-.dropdown {
-  position: relative;
-  min-width: 200px;
-  min-height: 75px;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-
-  margin: 0;
-  padding: 0;
-  min-width: 200px;
-  z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
 }
 
 .navbar a {
   height: 75px;
   padding: 1em;
   margin: 0em 7em;
+  margin-bottom: 10px;
 
   font-family: 'Rock Salt', cursive;
   font-size: 1em;
@@ -66,66 +54,105 @@ body {
   color: rgb(185, 177, 166);
 }
 
+.dropdown {
+  position: relative;
+  width: 350px;
+  min-height: 75px;
+  padding: 0;
+  margin: 0;
+
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 43, 54, .9);
+  font-size: .9em;
+  text-align: center;
+
+  margin: 0;
+  padding: 0;
+  width: inherit;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  margin-top: 10px;
+  height: unset;
+  padding: 0px;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
 h1 {
   margin: 15px auto;
   font-family: 'Permanent Marker', cursive;
   font-size: 3em;
 }
+.project-details {
+  margin: 0 auto;
+  display: block;
+  width: 1100px;
+  padding: 25px 50px;
+  background: rgba(0, 43, 54, .9);
+  text-align: center;
+}
 
+.project-details h3 {
+  text-align: center;
+}
 .board-wrapper {
   width: 500px;
   margin: 5% auto;
   padding: 0;
-
 }
 
 .board-wrapper input {
   width: 160px;
   border-radius: 4%;
+  border: 2px inset rgb(238, 232, 213);
+  margin-left: 45px;
   
   background-color: rgb(238, 232, 213);
   color: rgb(101, 123, 131); 
+  text-align: center;
 }
 
 .board-wrapper a {
-  display: inline-block;
   width: 160px;
-  height: 21px;
-  padding: 3px;
-  margin: 0 1px 3px 1px;
-
-  
+  height: 20px;
+  padding: 1px;
+  margin: 0px 45px 3px 0px;
+  border: 2px inset rgb(238, 232, 213);
   border-radius: 4%;
 
   background-color: rgb(238, 232, 213);
-  color: rgb(101, 123, 131); 
 
+  color: rgb(101, 123, 131); 
   text-align: center;
   vertical-align: middle;
   text-decoration: none;
   font-size: 1rem;
+  float: right;
 }
 
 .board-wrapper button {
-width: 166px;
-height: 27px;
+  margin-left: 167px;
+  width: 166px;
+  height: 27px;
+  border: 2px outset rgb(238, 232, 213);
   border-radius: 4%;
-  float: right;
 
   background-color: rgb(238, 232, 213);
-  color: rgb(101, 123, 131);
-}
 
-.board-wrapper p {
-  margin: 0 auto;
-  width: 250px;
-  
-  background-color: rgb(238, 232, 213);
   color: rgb(101, 123, 131);
-
   text-align: center;
-  font-weight: bold;
-  font-size: 1.5rem;
 }
 
 #board-div {
@@ -153,6 +180,10 @@ table {
 tr {
   border-collapse: collapse;
   border: 1px solid rgb(42, 161, 152);
+}
+
+tr:nth-child(even) {
+  background-color: rgba(7, 54, 66, .9);
 }
 
 td {
