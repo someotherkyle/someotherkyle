@@ -80,29 +80,40 @@ h1 {
 }
 
 .board-wrapper input {
-  width: 200px;
-  height: 30px;
+  width: 160px;
+  border-radius: 4%;
+  
+  background-color: rgb(238, 232, 213);
+  color: rgb(101, 123, 131); 
+}
+
+.board-wrapper a {
+  display: inline-block;
+  width: 160px;
+  height: 21px;
+  padding: 3px;
+  margin: 0 1px 3px 1px;
+
+  
   border-radius: 4%;
 
   background-color: rgb(238, 232, 213);
   color: rgb(101, 123, 131); 
-  font-size: 1.5rem;
+
   text-align: center;
-  font-weight: bold;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
 .board-wrapper button {
-  width: 206px;
-  height: 36px;
+width: 166px;
+height: 27px;
   border-radius: 4%;
   float: right;
 
   background-color: rgb(238, 232, 213);
   color: rgb(101, 123, 131);
-  font-size: 1.5rem;
-  text-align: center;
-  font-weight: bold;
-  vertical-align: middle;
 }
 
 .board-wrapper p {
@@ -115,10 +126,6 @@ h1 {
   text-align: center;
   font-weight: bold;
   font-size: 1.5rem;
-}
-
-.board-wrapper a {
-  width: 250px;
 }
 
 #board-div {
@@ -137,6 +144,15 @@ div .highScores {
 
 table {
   margin: 0 auto;
+  background-color: rgba(0, 43, 54, .9);
+  color: rgb(185, 177, 166);
+  border-collapse: collapse;
+  border: 3px solid rgb(42, 161, 152);
+}
+
+tr {
+  border-collapse: collapse;
+  border: 1px solid rgb(42, 161, 152);
 }
 
 td {
