@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Board from '../components/Board'
 import { connect } from 'react-redux'
 import * as game from '../game/game'
+import { NavLink } from 'react-router-dom'
 import { updateBoard, updateScore, setName, changePlayState, enableListener, toggleListener, updateName } from '../redux/actions/gameActions'
 import { pushScore } from '../redux/actions/scoresActions'
 import * as canvas from '../game/canvas'
@@ -178,9 +179,9 @@ class BoardContainer extends Component {
     canvas.drawTiles(board)
     if (game.noMove(board)){
       canvas.drawGameOver()
-      let gameInfo = {
+      const gameInfo = {
         score: this.props.game.score,
-        player_name: this.props.game.playerName
+        playerName: this.props.game.playerName
       }
       this.props.pushScore(gameInfo)
     }
@@ -217,11 +218,12 @@ class BoardContainer extends Component {
     return(
       <div className='board-wrapper'>
         <input type='text' value={this.props.game.playerName} onChange={e => this.props.updateName(e.target.value)} />
-        <button value="New Game" />
+        <button>New Game</button> 
         <div onMouseOver={e => this.handleMouseOver()} onMouseOut={e => this.handleMouseOut()}>
           <Board />
         </div>
         <p>Score: {this.props.game.score}</p>
+        <NavLink to='/highScores'>High Scores</NavLink>
       </div>
     )
   }
