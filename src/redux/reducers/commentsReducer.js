@@ -1,6 +1,7 @@
 const initialState = {
   name: '',
-  content: ''
+  content: '',
+  all: []
 }
 
 export default function commentReducer(state = initialState, action) {
@@ -15,6 +16,19 @@ export default function commentReducer(state = initialState, action) {
       return {
         ...state,
         content: action.payload
+      }
+
+    case 'ADD_COMMENT':
+      return {
+        ...state,
+        all: [...state.all,
+        action.payload]
+      }
+
+    case 'CLEAR_COMMENTS':
+      return {
+        ...state,
+        all: []
       }
     
     default:
