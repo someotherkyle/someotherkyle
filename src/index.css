@@ -90,28 +90,16 @@ a:hover {
 
 #floater {
   height: 32px;
-  width: 32px;
   position: fixed;
-  display: block;
+  display: inline-block;
   top: 25px;
   right: 10px;
   text-align: center;
 }
 
-#floater-content {
-  position: absolute;
-  width: 32px;
-  display: none;
-  text-align: center;
-}
-
-#floater-content a {
-  color: rgb(185, 177, 166);
-}
-
-
-#floater:hover #floater-content{
-  display: block;
+#floater a {
+  color: rgb(185,177,166);
+  margin: 0 10px;
 }
 
 .about-wrapper {
@@ -134,6 +122,10 @@ a:hover {
   padding: 1.8em;
   background: rgba(0, 43, 54, .9);
   max-width: 1100px;
+}
+
+.resume {
+  text-align: center;
 }
 
 h1 {

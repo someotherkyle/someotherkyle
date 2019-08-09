@@ -236,7 +236,7 @@ class BoardContainer extends Component {
       <div>
         <div className='board-wrapper'>
           <input type='text' placeholder='Enter Name' onChange={e => this.props.updateName(e.target.value)} />
-          <NavLink to='/playdiscount2048/highScores'>Score: {this.props.game.score}</NavLink>
+          <NavLink to='/play2048/highScores'>Score: {this.props.game.score}</NavLink>
           <div onMouseOver={e => this.handleMouseOver()} onMouseOut={e => this.handleMouseOut()}>
             <Board />
           </div>
