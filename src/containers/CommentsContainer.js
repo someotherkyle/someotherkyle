@@ -9,10 +9,6 @@ class CommentsContainer extends Component {
     this.props.fetchComments()
   }
 
-  componentDidUpdate = () => {
-    this.props.fetchComments()
-  }
-
   handleNameChange = e => {
     e.preventDefault()
     this.props.setName(e.target.value)
@@ -31,6 +27,8 @@ class CommentsContainer extends Component {
         content: this.props.comments.content
       }
       this.props.pushComment(commentInfo)
+      this.props.setName('')
+      this.props.setContent('')
     }
     this.props.fetchComments()
   }
@@ -40,8 +38,8 @@ class CommentsContainer extends Component {
       <div>
         <div className='new-comment-form'>
           <form onSubmit={e => this.handleSubmit(e)}>
-            <input type='text' placeholder='Name' onChange={e => this.handleNameChange(e)} /><br />
-            <textarea onChange={e => this.handleContentChange(e)} /><br />
+            <input type='text' placeholder='Name' onChange={e => this.handleNameChange(e)} value={this.props.name} /><br />
+            <textarea onChange={e => this.handleContentChange(e)} value={this.props.content} /><br />
             <input type='submit' value='Submit' />
           </form>
         </div>
