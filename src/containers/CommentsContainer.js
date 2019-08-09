@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import Comments from '../components/Comments'
 import { connect } from 'react-redux'
-import { setName, setContent, pushComment, clearComments, fetchComments } from '../redux/actions/commentsActions'
+import { setName, setContent, pushComment, fetchComments } from '../redux/actions/commentsActions'
 
 class CommentsContainer extends Component {
+
+  componentWillMount = () => {
+    this.props.fetchComments()
+  }
 
   handleNameChange = e => {
     e.preventDefault()
@@ -24,12 +28,7 @@ class CommentsContainer extends Component {
       }
       this.props.pushComment(commentInfo)
     }
-    this.props.clearComments()
     this.props.fetchComments()
-  }
-
-  componentWillUnmount = () => {
-    this.props.clearComments()
   }
 
   render(){
@@ -51,4 +50,4 @@ const mapStateToProps = state => {
     comments: state.comment
   }
 }
-export default connect(mapStateToProps, { setName, setContent, pushComment, fetchComments, clearComments })(CommentsContainer)
+export default connect(mapStateToProps, { setName, setContent, pushComment, fetchComments })(CommentsContainer)

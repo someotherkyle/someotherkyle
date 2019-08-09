@@ -5,13 +5,15 @@ export const clearHighScores = () => {
 }
 
 export const fetchScores = () => dispatch =>  {
-    return fetch("http://localhost:3001/games")
-    .then(r => r.json())
-    .then(games => 
-        games.map(game => 
-            dispatch({type: 'ADD_GAMES', payload: game}))
-            )
-        }
+  return fetch("http://localhost:3001/games")
+  .then(r => r.json())
+  .then(games => 
+    dispatch({
+      type: 'ADD_GAMES', 
+      payload: games
+    })
+  )
+}
 
 export const pushScore = game => {
   return dispatch => {

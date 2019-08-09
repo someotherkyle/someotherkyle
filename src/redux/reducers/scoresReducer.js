@@ -4,22 +4,12 @@ const initialState = {
 
 export default function scoresReducer(state = initialState, action){
   switch (action.type){
-
-    case 'CLEAR_SCORES':
+    case 'ADD_GAMES':
       return {
         ...state,
-        games: []
+        games: action.payload
       }
       
-      case 'ADD_GAMES':
-        return {
-          ...state,
-          games: [
-            ...state.games,
-            action.payload
-          ],
-        }
-        
   default:
     return state        
   }

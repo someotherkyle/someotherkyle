@@ -33,10 +33,12 @@ export const fetchComments = () => dispatch =>  {
   return fetch("http://localhost:3001/comments")
   .then(r => r.json())
   .then(comments => 
-      comments.map(comment => 
-          dispatch({type: 'ADD_COMMENT', payload: comment}))
-          )
-      }
+    dispatch({
+      type: 'ADD_COMMENTS', 
+      payload: comments
+    })
+  )
+}
 
 export const clearComments = () => {
   return {

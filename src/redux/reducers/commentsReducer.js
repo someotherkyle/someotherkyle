@@ -18,19 +18,12 @@ export default function commentReducer(state = initialState, action) {
         content: action.payload
       }
 
-    case 'ADD_COMMENT':
+    case 'ADD_COMMENTS':
       return {
         ...state,
-        all: [...state.all,
-        action.payload]
+        all: action.payload
       }
 
-    case 'CLEAR_COMMENTS':
-      return {
-        ...state,
-        all: []
-      }
-    
     default:
       return state
   }

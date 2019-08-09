@@ -11,10 +11,6 @@ class HighScoresContainer extends Component {
     this.sortTable(0)
   }
 
-  componentWillUnmount = () => {
-    this.props.clearHighScores()
-  }
-
   sortTableOnClick = (e, n) => {
     e.preventDefault()
     this.sortTable(n)
