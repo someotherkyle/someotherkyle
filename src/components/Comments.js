@@ -8,7 +8,7 @@ class Comment extends Component {
       <div className='comment-wrapper'>
         {this.props.comments.slice(0).reverse().map(comment => (
           <div className='text-div' key={comment.id}>
-            <h3>{comment.name}</h3>
+            <h3>{comment.name} : </h3>
             <p>{comment.content}</p>
           </div>
         ))}

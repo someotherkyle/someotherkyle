@@ -4,7 +4,7 @@ body {
   border: none;
   margin: 0;
 
-  background-image: url(/static/media/bg.da255946.svg);
+  background-image: url(resources/bg.svg);
   background-size: 20em;
   background-repeat: repeat;
   background-color: rgb(7, 54, 66);
@@ -122,6 +122,7 @@ a:hover {
   padding: 1.8em;
   background: rgba(0, 43, 54, .9);
   max-width: 1100px;
+  border-radius: 10px;
 }
 
 .resume {
@@ -241,7 +242,7 @@ td {
   margin: 15px;
   color: rgb(101,123,131);
   background-color: rgb(238, 232, 213);
-  border-radius: 5px;
+  border-radius: 4%;
 }
 
 .new-comment-form textarea {
@@ -253,8 +254,16 @@ td {
   color: rgb(101, 123, 131);
 }
 
-.comment-wrapper {
+.comment-wrapper .text-div{
   text-align: center;
   width: 1100px;
-  margin: 0 auto;
+  padding-top: 10px;
+  font-size: 1em;
+  margin: 25px auto;
+}
+
+.comment-wrapper h3 {
+  text-align: left;
+  margin-bottom: 0px;
+  font-family: 'Rock Salt', cursive;
 }
