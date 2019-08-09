@@ -5,9 +5,9 @@ class Comment extends Component {
 
   render(){
     return(
-      <div className='comments'>
+      <div className='comment-wrapper'>
         {this.props.comments.map(comment => (
-          <div key={comment.id}>
+          <div className='comment' key={comment.id}>
             <h3>{comment.name}</h3>
             <p>{comment.content}</p>
           </div>

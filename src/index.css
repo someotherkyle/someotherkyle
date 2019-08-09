@@ -225,3 +225,34 @@ tr:nth-child(even) {
 td {
   width: 300px;
 }
+
+.new-comment-form {
+  display: block;
+  width: 600px;
+  text-align: center;
+  margin: 5% auto;
+
+}
+
+.new-comment-form input {
+  text-align: center;
+  margin: 15px;
+  color: rgb(101,123,131);
+  background-color: rgb(238, 232, 213);
+  border-radius: 5px;
+}
+
+.new-comment-form textarea {
+  width: 600px;
+  height: 300px;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: rgb(238, 232, 213);
+  color: rgb(101, 123, 131);
+}
+
+.comment-wrapper {
+  text-align: center;
+  width: 1100px;
+  margin: 0 auto;
+}
