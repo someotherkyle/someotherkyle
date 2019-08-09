@@ -88,6 +88,33 @@ a:hover {
   display: block;
 }
 
+#floater {
+  height: 32px;
+  width: 32px;
+  position: fixed;
+  display: block;
+  top: 25px;
+  right: 10px;
+  text-align: center;
+}
+
+#floater-content {
+  position: absolute;
+  width: 32px;
+  display: none;
+  text-align: center;
+}
+
+#floater-content a {
+  color: rgb(185, 177, 166);
+}
+
+
+#floater:hover #floater-content{
+  display: block;
+}
+
+
 .text-div {
   font-size: 2em;
   margin: 0 auto;

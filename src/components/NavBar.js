@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const NavBar = () => {
     return(
@@ -18,7 +18,7 @@ const NavBar = () => {
               <a href='http://someotherkyle-activity-tracker.herokuapp.com'>Activity Tracker</a>
             </div>
           </div>
-          <NavLink to='/contact'>Contact Me</NavLink>
+          <NavLink to='/comments'>Comments & Feedback</NavLink>
         </div>
     )
 }

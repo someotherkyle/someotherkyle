@@ -7,7 +7,7 @@ export default class About extends Component {
       <div className='about-wrapper'>
         <div className='about-content'>
           <div className='text-div'>
-            <h1 id='name'>My name is Kyle. I solve problems.</h1>
+            <h1 id='name'>my name is kyle. i solve problems.</h1>
           </div>
         </div>
       </div>
