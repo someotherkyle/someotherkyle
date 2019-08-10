@@ -6,8 +6,8 @@ export default class Floater extends Component {
     return(
       <div id='floater'>
         <a href="mailto:kyle@someotherkyle.com"><i className='material-icons'>email</i></a>
-        <a href="https://github.com/someotherkyle"><img src="github.png" alt='github octocat' /></a>
-        <a href="https://linkedin.com/in/someotherkyle"><img src="linkedin.png" alt='linked in logo' /></a>
+        <a rel='noopener noreferrer' target="_blank" href="https://github.com/someotherkyle"><img src="github.png" alt='github octocat' /></a>
+        <a rel='noopener noreferrer' target="_blank" href="https://linkedin.com/in/someotherkyle"><img src="linkedin.png" alt='linked in logo' /></a>
       </div>
     )
   }
