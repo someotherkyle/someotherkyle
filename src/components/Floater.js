@@ -5,7 +5,9 @@ export default class Floater extends Component {
   render(){
     return(
       <div id='floater-wrapper'>
-        <i className='material-icons'>more_vert</i>
+        <div id='floater-condensed'>
+          <i className='material-icons'>more_vert</i>
+        </div>
         <div id='floater'>
           <a href="mailto:kyle@someotherkyle.com"><i className='material-icons'>email</i></a>
           <a rel='noopener noreferrer' target="_blank" href="https://github.com/someotherkyle"><img src="github.png" alt='github octocat' /></a>

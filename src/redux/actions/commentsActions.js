@@ -14,6 +14,7 @@ export const setContent = content => {
 
 export const pushComment = comment => {
   return dispatch => {
+    dispatch({type: 'PUSH_COMMENT', payload: comment})
     fetch('http://localhost:3001/comments', {
       method: 'POST',
       headers: {
@@ -26,22 +27,19 @@ export const pushComment = comment => {
         }
       })
     })
-    .then(r => {return r.json()})
+    .then(r => r.status === 200 ? dispatch({type: 'CLEAR_ACTIVITY'}) : dispatch({type: 'ERROR'}))
   }
 }
-export const fetchComments = () => dispatch =>  {
-  return fetch("http://localhost:3001/comments")
-  .then(r => r.json())
-  .then(comments => 
-    dispatch({
-      type: 'ADD_COMMENTS', 
-      payload: comments
-    })
-  )
-}
-
-export const clearComments = () => {
-  return {
-    type: 'CLEAR_COMMENTS'
+export const fetchComments = () => {
+  return dispatch => {
+    dispatch({type: 'FETCHING_COMMENTS'})
+    fetch("http://localhost:3001/comments")
+    .then(r => r.json())
+    .then(comments => 
+      dispatch({
+        type: 'SOURCE_COMMENTS', 
+        payload: comments
+      })
+    )
   }
 }

@@ -1,26 +1,21 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
 
-class Comment extends Component {
+const Comment = props =>  {
 
-  render(){
-    return(
-      <div className='comment-wrapper'>
-        {this.props.comments.slice(0).reverse().map(comment => (
-          <div className='text-div' key={comment.id}>
+  return(
+    <div className='comment-wrapper'>
+      {props.comments.slice(0).reverse().map(comment => (
+        <div key={comment.id}>
+          {typeof(comment.created_at) !== 'undefined' ? <sup>{comment.created_at.slice(0, 10)}</sup> : <sup>Now</sup>}
+          <div className='text-div'>
             <h3>{comment.name} : </h3>
             <p>{comment.content}</p>
           </div>
-        ))}
-      </div>
-    )
-  }
+        </div>
+      ))}
+    </div>
+  )
 }
 
-const mapStateToProps = state => {
-  return {
-    comments: state.comment.all
-  }
-}
 
-export default connect(mapStateToProps)(Comment)
+export default Comment

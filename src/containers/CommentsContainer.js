@@ -4,8 +4,15 @@ import { connect } from 'react-redux'
 import { setName, setContent, pushComment, fetchComments } from '../redux/actions/commentsActions'
 
 class CommentsContainer extends Component {
+  constructor(){
+    super()
 
-  componentWillMount = () => {
+    this.state = {
+      filter: ''
+    }
+  }
+
+  componentDidMount = () => {
     this.props.fetchComments()
   }
 
@@ -26,24 +33,44 @@ class CommentsContainer extends Component {
         name: this.props.comments.name,
         content: this.props.comments.content
       }
-      this.props.pushComment(commentInfo)
       this.props.setName('')
       this.props.setContent('')
+      this.props.pushComment(commentInfo)
     }
-    this.props.fetchComments()
   }
+
+  handleFilterChange = e => {
+    e.preventDefault()
+    this.setState({
+      filter: e.target.value
+    })
+  }
+
+  filterComments = () => {
+    let filteredComments = this.props.comments.all
+    if (this.state.filter.length > 0){
+      filteredComments = []
+      this.props.comments.all.forEach( comment => {
+        if (comment.name.toLowerCase().includes(this.state.filter.toLowerCase())) filteredComments.push(comment)
+      })
+    }
+    return filteredComments
+  }
+
 
   render(){
     return(
       <div>
+        {this.props.comments.error !== '' ? <p>{this.props.comments.error} {this.props.comments.currentActivity}</p> : null}
         <div className='new-comment-form'>
           <form onSubmit={e => this.handleSubmit(e)}>
             <input type='text' placeholder='Name' onChange={e => this.handleNameChange(e)} value={this.props.name} /><br />
             <textarea onChange={e => this.handleContentChange(e)} value={this.props.content} /><br />
             <input type='submit' value='Submit' />
           </form>
+          <input type="text" onChange={ e => this.handleFilterChange(e)} />
         </div>
-        <Comments />
+        <Comments comments={this.filterComments()}/>
       </div>
     )
   }

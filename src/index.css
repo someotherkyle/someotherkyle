@@ -173,7 +173,7 @@
     display: block;
   }
 
-  #floater-wrapper {
+  #floater-condensed {
     display: none;
   }
 
@@ -343,16 +343,27 @@
     color: rgb(101, 123, 131);
   }
 
+  .comment-wrapper {
+    width: 1100px;
+    margin: 25px auto;
+  }
+
   .comment-wrapper .text-div{
     text-align: center;
-    width: 1100px;
     padding-top: 10px;
     font-size: 1em;
-    margin: 25px auto;
+    margin-top: 5px;
+  }
+
+  .comment-wrapper sup {
+    font-family: 'Rock Salt', cursive;
+    font-size: .8em;
+    text-align: left;
   }
 
   .comment-wrapper h3 {
     text-align: left;
+    margin-top: 0px;
     margin-bottom: 0px;
     font-family: 'Rock Salt', cursive;
   }
