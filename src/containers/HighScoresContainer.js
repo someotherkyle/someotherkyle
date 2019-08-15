@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import { fetchScores, clearHighScores } from '../redux/actions/scoresActions'
 
 class HighScoresContainer extends Component {
-  componentWillMount = () => {
-    this.props.fetchScores()
-  }
 
   componentDidMount = () => {
+    this.props.fetchScores()
     this.sortTable(0)
   }
 
