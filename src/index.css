@@ -73,6 +73,7 @@ a:hover {
     width: 500px;
     margin: 5% auto;
     padding: 0;
+    font-family: 'Fira Sans', 
   }
 
   .board-wrapper input {
@@ -88,7 +89,7 @@ a:hover {
 
   .board-wrapper a {
     width: 160px;
-    height: 20px;
+    height: 26px;
     padding: 1px;
     margin: 0px 45px 3px 0px;
     border: 2px inset rgb(238, 232, 213);
@@ -100,7 +101,7 @@ a:hover {
     text-align: center;
     vertical-align: middle;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     float: right;
   }
 
