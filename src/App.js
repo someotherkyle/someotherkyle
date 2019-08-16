@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom'
 import NavBar from './components/NavBar'
-import Floater from './components/Floater'
+import Footer from './components/Footer'
 import About from './components/About'
 import Resume from './components/Resume'
 import Blog from './components/Blog'
@@ -16,10 +16,9 @@ import HighScoresContainer from './containers/HighScoresContainer'
 function App() {
   return (
     <Router>
-      <div className='App'>
+      <div className='App container-fluid'>
         <div className='navbar-wrapper'>
           <NavBar />
-          <Floater />
         </div>
         <Route exact path='/' component={About} />
         <Route exact path='/resume' component={Resume} />
@@ -28,6 +27,7 @@ function App() {
         <Route exact path='/play2048' component={BoardContainer} />
         <Route exact path='/play2048/highscores' component={HighScoresContainer} />
         <Route exact path='/comments' component={CommentsContainer} />
+        <Footer />
       </div>
     </Router>
   );

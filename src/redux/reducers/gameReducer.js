@@ -8,7 +8,7 @@ const initialState = {
   ],
   score: 0,
   listenerEnabled: false,
-  playerName: 'Enter Name'
+  playerName: ''
 }
 
 export default function gameReducer(state = initialState, action){

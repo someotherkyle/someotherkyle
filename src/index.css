@@ -1,241 +1,60 @@
-@media (max-width: 750px){
-  body {
-    width: 100%;
-    padding: 0;
-    border: none;
-    margin: 0;
+body {
+  background-image: linear-gradient(rgb(0, 43, 54), rgb(22, 24, 26));
+  color: rgb(185, 177, 166);
+  font-family: "Fira Sans";
 
-    background-image: url(/static/media/bg.da255946.svg);
-    background-size: 20em;
-    background-repeat: repeat;
-    background-color: rgb(7, 54, 66);
-
-    font-family: "Fira Sans";
-    color: rgb(185, 177, 166);
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  em {
-    color: rgb(133, 153, 0);
-  }
-  a {
-    text-decoration: none;
-    color: rgb(203, 75, 22);
-  }
-
-  a:active {
-    color: rgb(185,177,166);
-  }
-  
-  #floater-wrapper {
-    position: fixed;
-    top: 1em;
-    right: 1em;
-    z-index: 1;
-  }
-  
-  #floater {
-    display: none;
-  }
-  
-  .navbar {
-    width: 100%;
-    text-align: center;
-    vertical-align: middle;
-    font-weight: bold;
-    font-size: 1.2em;
-    height: 2em;
-    padding-top: 1em;
-  }
-  
-  .navbar .active {
-    display: inline-block;
-  }
-
-  .navbar a {
-    display: none;
-  }
-  
-  .about-wrapper {
-    max-width: 85%;
-    margin: 0 auto;
-  }
-  
-  .about-content img {
-    max-width: 100%;
-  }
-  
-  .about-content h1 {
-    font-family: 'Rock Salt', cursive;
-    font-size: 1em;
-  }
-  
-  .about-content {
-    max-width: 100%;
-    text-align: center;
-    background-color: rgba(0, 43, 54, 0.9);
-    padding: 1em;
-  } 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
 }
 
-@media (min-width: 750px){
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
 
-  body {
-    width: 100%;
-    padding: 0;
-    border: none;
-    margin: 0;
+.navbar {
+  text-align: center;
+}
 
-    background-image: url(resources/bg.svg);
-    background-size: 20em;
-    background-repeat: repeat;
-    background-color: rgb(7, 54, 66);
+a {
+  text-decoration: none;
+  color: rgb(38, 139, 210);
+}
 
-    font-family: "Fira Sans";
-    color: rgb(185, 177, 166);
+.about-image {
+  text-align: center;
+}
 
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+.about-image img {
+  max-width: 100%;
+}
 
-  em {
-    color: rgb(133, 153, 0);
-  }
-  
-  a {
-    text-decoration: none;
-    color: rgb(203, 75, 22);
-  }
+.about-text {
+  text-align: center;
+}
 
-  a:hover {
-    text-decoration: underline;
-  }
+.about-text h1 {
+  font-family: 'Rock Salt', cursive;
+  font-size: 2em;
+}
 
-  .navbar-wrapper {
-    width: 100%;
-    background: rgba(0, 43, 54, .9);
-    text-align: center;
-  }
+.footer-content {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
 
-  .navbar {
-    display: inline-block;
-    position: relative;
-    width: 1720px;
-    height: 40px;
-    text-align: center;
-    padding: 1em;
-  }
+.footer-content i {
+  font-size: 32px;
+  color: rgb(185, 177, 166);
+}
 
-  .navbar a {
-    height: 75px;
-    padding: 1em;
-    margin: 0em 7em;
-    margin-bottom: 10px;
+.blog {
+  text-align: center;
+}
 
-    font-family: 'Rock Salt', cursive;
-    font-size: 1em;
-    text-decoration: none;
-    color: rgb(185, 177, 166);
-  }
-
-  .dropdown {
-    position: relative;
-    width: 350px;
-    min-height: 75px;
-    padding: 0;
-    margin: 0;
-
-    display: inline-block;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: rgba(0, 43, 54, .9);
-    font-size: .9em;
-    text-align: center;
-
-    margin: 0;
-    padding: 0;
-    width: inherit;
-    z-index: 1;
-  }
-
-  .dropdown-content a {
-    margin-top: 10px;
-    height: unset;
-    padding: 0px;
-    display: block;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  #floater-condensed {
-    display: none;
-  }
-
-  #floater {
-    height: 32px;
-    position: fixed;
-    display: inline-block;
-    top: 25px;
-    right: 10px;
-    text-align: center;
-  }
-
-  #floater a {
-    color: rgb(185,177,166);
-    margin: 0 10px;
-  }
-
-  .about-wrapper {
-    text-align: center;
-    margin-top: 25px;
-  }
-
-  .about-content {
-    margin: 0 auto;
-  }
-  .about-content img {
-    max-width: 35%;
-      height: auto;
-  }
-
-  .text-div {
-    font-size: 1.3em;
-    margin: 30px auto;
-    display: block;
-    padding: 1.8em;
-    background: rgba(0, 43, 54, .9);
-    max-width: 1100px;
-    border-radius: 10px;
-  }
-
-  .resume {
-    text-align: center;
-  }
-
-  h1 {
-    margin: 15px auto;
-    font-family: 'Rock Salt', cursive;
-    font-size: 1.2em;
-  }
-  .project-details {
-    margin: 0 auto;
-    display: block;
-    width: 1100px;
-    padding: 25px 50px;
-    background: rgba(0, 43, 54, .9);
-    text-align: center;
-  }
-
-  .project-details h3 {
-    text-align: center;
-  }
-  .board-wrapper {
+.board-wrapper {
     width: 500px;
     margin: 5% auto;
     padding: 0;
@@ -292,79 +111,3 @@
   #board-div canvas {
     position: absolute;
   }
-
-  div .highScores {
-    text-align: center;
-  }
-
-  table {
-    margin: 0 auto;
-    background-color: rgba(0, 43, 54, .9);
-    color: rgb(185, 177, 166);
-    border-collapse: collapse;
-    border: 3px solid rgb(42, 161, 152);
-  }
-
-  tr {
-    border-collapse: collapse;
-    border: 1px solid rgb(42, 161, 152);
-  }
-
-  tr:nth-child(even) {
-    background-color: rgba(7, 54, 66, .9);
-  }
-
-  td {
-    width: 300px;
-  }
-
-  .new-comment-form {
-    display: block;
-    width: 600px;
-    text-align: center;
-    margin: 5% auto;
-
-  }
-
-  .new-comment-form input {
-    text-align: center;
-    margin: 15px;
-    color: rgb(101,123,131);
-    background-color: rgb(238, 232, 213);
-    border-radius: 4%;
-  }
-
-  .new-comment-form textarea {
-    width: 600px;
-    height: 300px;
-    border-radius: 10px;
-    padding: 5px;
-    background-color: rgb(238, 232, 213);
-    color: rgb(101, 123, 131);
-  }
-
-  .comment-wrapper {
-    width: 1100px;
-    margin: 25px auto;
-  }
-
-  .comment-wrapper .text-div{
-    text-align: center;
-    padding-top: 10px;
-    font-size: 1em;
-    margin-top: 5px;
-  }
-
-  .comment-wrapper sup {
-    font-family: 'Rock Salt', cursive;
-    font-size: .8em;
-    text-align: left;
-  }
-
-  .comment-wrapper h3 {
-    text-align: left;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-family: 'Rock Salt', cursive;
-  }
-}
