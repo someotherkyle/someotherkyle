@@ -2,6 +2,7 @@ body {
   background-color: rgb(0, 43, 54);
   color: rgb(185, 177, 166);
   font-family: "Fira Sans";
+  font-size: 1.7em;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
@@ -42,7 +43,7 @@ a:hover {
 }
 
 .about-image img {
-  max-width: 100%;
+  max-width: 75%;
 }
 
 .about-text {
@@ -52,6 +53,10 @@ a:hover {
 .about-text h1 {
   font-family: 'Rock Salt', cursive;
   font-size: 2em;
+}
+
+.education h3, .skills h3 {
+  text-align: center;
 }
 
 .footer-content {
