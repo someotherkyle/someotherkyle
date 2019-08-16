@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(rgb(0, 43, 54), rgb(22, 24, 26));
+  background-color: rgb(0, 43, 54);
   color: rgb(185, 177, 166);
   font-family: "Fira Sans";
 
@@ -17,9 +17,24 @@ body {
   text-align: center;
 }
 
-a {
+.navbar a, .navbar a:hover {
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.4em;
+  color: rgb(185, 177, 166);
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+a , a:hover {
   text-decoration: none;
-  color: rgb(38, 139, 210);
+  color: rgb(211, 54, 130);
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .about-image {
