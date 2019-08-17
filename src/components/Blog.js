@@ -6,10 +6,10 @@ class Blog extends Component {
   
   componentDidMount = () => {
     this.props.fetchPosts()
-    this.sleep(300).then(this.whichPost())
+    this.whichPost()
   }
 
-  whichPost = () => {
+    whichPost = () => {
     const postId = parseInt(document.location.href.match(/\d+/g))
     const post = this.props.posts.filter(post => post.id === postId).pop()
 
@@ -23,10 +23,6 @@ class Blog extends Component {
       document.getElementById("blog-title").innerHTML = post.title 
       document.getElementById("blog-body").innerHTML = post.content
     }
-  }
-
-  sleep = ms => {
-    return new Promise(resolve => setTimeout(resolve, ms))
   }
 
   render(){
