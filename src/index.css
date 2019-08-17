@@ -71,8 +71,45 @@ a:hover {
   color: rgb(185, 177, 166);
 }
 
-.blog {
+.blog-content h1 {
   text-align: center;
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.4em;
+  margin: 2em;
+}
+
+.blog-content {
+  text-align: left;
+}
+
+.blog-link li{
+  text-align: left;
+}
+
+.blog-link a {
+  text-align: center;
+}
+
+ul {
+  list-style-image: url('./resources/baseline-code-24px.svg');
+}
+
+ul.done {
+  list-style-image: url('./resources/baseline-done-24px.svg');
+  text-decoration: line-through;
+}
+
+ul h2 {
+  font-family: 'Rock Salt', cursive;
+  font-size: 1em;
+}
+
+ul.done h2 {
+  text-decoration: none;
+}
+
+.blog-titles ul, .todo ul {
+  padding: 0;
 }
 
 .board-wrapper {
