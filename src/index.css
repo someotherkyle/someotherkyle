@@ -82,6 +82,10 @@ a:hover {
   text-align: left;
 }
 
+.blog {
+  text-align: center;
+}
+
 .blog-link li{
   text-align: left;
 }
