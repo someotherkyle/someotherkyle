@@ -30,7 +30,7 @@ body {
 
 a , a:hover {
   text-decoration: none;
-  color: rgb(211, 54, 130);
+  color: rgb(42, 161, 152);
   font-weight: bold;
 }
 
@@ -80,6 +80,10 @@ a:hover {
 
 #blog-body {
   text-align: left;
+}
+
+#blog-body img {
+  max-width: 100%;
 }
 
 .blog {

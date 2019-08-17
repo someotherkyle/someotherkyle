@@ -20,8 +20,8 @@ class BlogContainer extends Component {
           <div className='col-sm-2' />
         </div>
         <div className='row'>
-          <div className='col-sm-1' />
-          <div className='col-xs-12 col-sm-5 blog-titles'>
+          <div className='col-sm-2' />
+          <div className='col-xs-12 col-sm-4 blog-titles'>
               <ul>
                 <h2>Posts:</h2>
                 {this.props.blog.posts.reverse().map(post => {
@@ -34,7 +34,7 @@ class BlogContainer extends Component {
                 })}
               </ul>
           </div>
-          <div className='col-xs-12 col-sm-5 todo'>
+          <div className='col-xs-12 col-sm-4 todo'>
               <ul>
                 <h2>Currently Working On:</h2>
                 <li>Move Blog over to here</li>
@@ -49,7 +49,7 @@ class BlogContainer extends Component {
                 <li>Responsive Design</li>
               </ul>
             </div>
-            <div className='col-sm-1' />
+            <div className='col-sm-2' />
           </div>
             
         </div>
