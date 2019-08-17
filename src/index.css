@@ -71,14 +71,14 @@ a:hover {
   color: rgb(185, 177, 166);
 }
 
-.blog-content h1 {
+#blog-title {
   text-align: center;
   font-family: 'Rock Salt', cursive;
   font-size: 1.4em;
   margin: 2em;
 }
 
-.blog-content {
+#blog-body {
   text-align: left;
 }
 
