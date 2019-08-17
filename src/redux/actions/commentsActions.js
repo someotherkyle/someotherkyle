@@ -15,7 +15,7 @@ export const setContent = content => {
 export const pushComment = comment => {
   return dispatch => {
     dispatch({type: 'PUSH_COMMENT', payload: comment})
-    fetch('http://localhost:3001/comments', {
+    fetch('http://74.207.234.74:3001/comments', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ export const pushComment = comment => {
 export const fetchComments = () => {
   return dispatch => {
     dispatch({type: 'FETCHING_COMMENTS'})
-    fetch("http://localhost:3001/comments")
+    fetch("http://74.207.234.74:3001/comments")
     .then(r => r.json())
     .then(comments => 
       dispatch({
