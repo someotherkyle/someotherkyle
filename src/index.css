@@ -75,6 +75,24 @@ a:hover {
   text-align: center;
 }
 
+ul {
+  list-style-image: url('./resources/baseline-code-24px.svg');
+}
+
+ul.done {
+  list-style-image: url('./resources/baseline-done-24px.svg');
+  text-decoration: line-through;
+}
+
+ul h2 {
+  font-family: 'Rock Salt', cursive;
+  font-size: 1em;
+}
+
+.blog-titles ul, .todo ul {
+  padding: 0;
+}
+
 .board-wrapper {
   width: 500px;
   margin: 5% auto;
