@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../redux/actions/blogActions'
+import { NavLink } from 'react-router-dom'
 
 class BlogContainer extends Component {
 
@@ -25,7 +26,10 @@ class BlogContainer extends Component {
                 <h2>Posts:</h2>
                 {this.props.blog.posts.reverse().map(post => {
                   return (
-                  <li>{post.created_at.slice(0,10)}:<br />{post.title}</li>
+                    <div className='blog-link' key={post.id}>
+                      <li>{post.created_at.slice(0,10)}:<br /></li>
+                      <NavLink to={`/blog/${post.id}`}>{post.title}</NavLink>
+                    </div>
                   )
                 })}
               </ul>
