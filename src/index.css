@@ -75,60 +75,94 @@ a:hover {
 }
 
 .board-wrapper {
-    width: 500px;
-    margin: 5% auto;
-    padding: 0;
-    font-family: 'Fira Sans', 
-  }
+  width: 500px;
+  margin: 5% auto;
+  padding: 0;
+  font-family: 'Fira Sans', 
+}
 
-  .board-wrapper input {
-    width: 160px;
-    border-radius: 4%;
-    border: 2px inset rgb(238, 232, 213);
-    margin-left: 45px;
-    
-    background-color: rgb(238, 232, 213);
-    color: rgb(101, 123, 131); 
-    text-align: center;
-  }
+.board-wrapper input {
+  width: 160px;
+  border-radius: 4%;
+  border: 2px inset rgb(238, 232, 213);
+  margin-left: 45px;
+  
+  background-color: rgb(238, 232, 213);
+  color: rgb(101, 123, 131); 
+  text-align: center;
+}
 
-  .board-wrapper a {
-    width: 160px;
-    height: 26px;
-    padding: 1px;
-    margin: 0px 45px 3px 0px;
-    border: 2px inset rgb(238, 232, 213);
-    border-radius: 4%;
+.board-wrapper a {
+  width: 160px;
+  height: 30px;
+  padding: 1px;
+  margin: 0px 45px 3px 0px;
+  border: 2px inset rgb(238, 232, 213);
+  border-radius: 4%;
 
-    background-color: rgb(238, 232, 213);
+  background-color: rgb(238, 232, 213);
 
-    color: rgb(101, 123, 131); 
-    text-align: center;
-    vertical-align: middle;
-    text-decoration: none;
-    font-size: 1.5rem;
-    float: right;
-  }
+  color: rgb(101, 123, 131); 
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 1.5rem;
+  float: right;
+}
 
-  .board-wrapper button {
-    margin-left: 167px;
-    width: 166px;
-    height: 27px;
-    border: 2px outset rgb(238, 232, 213);
-    border-radius: 4%;
+.board-wrapper button {
+  margin-left: 167px;
+  width: 166px;
+  height: 27px;
+  border: 2px outset rgb(238, 232, 213);
+  border-radius: 4%;
 
-    background-color: rgb(238, 232, 213);
+  background-color: rgb(238, 232, 213);
 
-    color: rgb(101, 123, 131);
-    text-align: center;
-  }
+  color: rgb(101, 123, 131);
+  text-align: center;
+}
 
-  #board-div {
-    width: 500px;
-    height: 500px;
-    margin: 5% auto;
-  }
+#board-div {
+  width: 500px;
+  height: 500px;
+  margin: 5% auto;
+}
 
-  #board-div canvas {
-    position: absolute;
-  }
+#board-div canvas {
+  position: absolute;
+}
+
+.highScores {
+  text-align: center;
+}
+
+.highScores h3 {
+  font-family: 'Rock Salt', cursive;
+    margin-bottom: 2em;
+}
+
+table {
+  margin: 0 auto;
+  background-color: rgba(0, 43, 54, .9);
+  color: rgb(185, 177, 166);
+  border-collapse: collapse;
+  border: 3px solid rgb(42, 161, 152);
+}
+
+th {
+  text-align: center;
+}
+
+tr {
+  border-collapse: collapse;
+  border: 1px solid rgb(42, 161, 152);
+}
+
+tr:nth-child(even) {
+  background-color: rgba(7, 54, 66, .9);
+}
+
+td {
+  min-width: 300px;
+}
