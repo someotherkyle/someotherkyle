@@ -1,5 +1,5 @@
 const initialState = {
-  blogs: []
+  posts: []
 }
 
 export default function blogReducer(state = initialState, action) {

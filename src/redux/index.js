@@ -4,11 +4,13 @@ import thunk from 'redux-thunk'
 import game from './reducers/gameReducer'
 import scores from './reducers/scoresReducer'
 import comment from './reducers/commentsReducer'
+import blog from './reducers/blogReducer'
 
 const rootReducer = combineReducers({
   game,
   scores,
-  comment
+  comment,
+  blog
 })
 
 export default createStore (rootReducer, composeWithDevTools(applyMiddleware(thunk)))
