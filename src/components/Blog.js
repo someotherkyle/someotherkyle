@@ -1,17 +1,24 @@
 import React, { Component } from 'react'
 import { fetchPosts } from '../redux/actions/blogActions'
 import { connect } from 'react-redux';
+import CommentsContainer from '../containers/CommentsContainer'
 
 class Blog extends Component {
-  
+
+  constructor(props){
+    super(props)
+    this.state = {
+      postId: parseInt(document.location.href.match(/\d+/g)[1])
+    }
+  }
+
   componentDidMount = () => {
     this.props.fetchPosts()
     this.whichPost()
   }
 
     whichPost = () => {
-    const postId = parseInt(document.location.href.match(/\d+/g))
-    const post = this.props.posts.filter(post => post.id === postId).pop()
+    const post = this.props.posts.filter(post => post.id === this.state.postId).pop()
 
     if (typeof(post) === 'undefined'){
       return (
@@ -27,13 +34,16 @@ class Blog extends Component {
 
   render(){
     return(
-      <div className='row'>
-        <div className='col-xs-1 col-sm-1' />
-        <div className='col-xs-10 col-sm-10 blog'>
-          <h1 id="blog-title"> </h1>
-          <div id="blog-body"> </div>
+      <div>
+        <div className='row'>
+          <div className='col-xs-1 col-sm-1' />
+          <div className='col-xs-10 col-sm-10 blog'>
+            <h1 id="blog-title"> </h1>
+            <div id="blog-body"> </div>
+          </div>
+          <div className='col-xs-1 col-sm-1' />
         </div>
-        <div className='col-xs-1 col-sm-1' />
+        <CommentsContainer postId={this.state.postId} />
       </div>
     )
   }

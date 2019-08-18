@@ -24,12 +24,14 @@ export const pushComment = comment => {
         comment: {
           name: comment.name,
           content: comment.content,
+          post_id: comment.postId
         }
       })
     })
     .then(r => r.status === 200 ? dispatch({type: 'CLEAR_ACTIVITY'}) : dispatch({type: 'ERROR'}))
   }
 }
+
 export const fetchComments = () => {
   return dispatch => {
     dispatch({type: 'FETCHING_COMMENTS'})

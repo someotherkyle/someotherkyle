@@ -4,11 +4,12 @@ import { connect } from 'react-redux'
 import { setName, setContent, pushComment, fetchComments } from '../redux/actions/commentsActions'
 
 class CommentsContainer extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
 
     this.state = {
-      filter: ''
+      filter: '',
+      postId: this.props.postId,
     }
   }
 
@@ -28,10 +29,11 @@ class CommentsContainer extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    if (this.props.comments.name.length > 2 && this.props.comments.content.length > 5){
+    if (this.props.comments.name.length > 2 && this.props.comments.content.length > 3){
       let commentInfo = {
         name: this.props.comments.name,
-        content: this.props.comments.content
+        content: this.props.comments.content,
+        postId: this.state.postId
       }
       this.props.setName('')
       this.props.setContent('')
@@ -47,30 +49,38 @@ class CommentsContainer extends Component {
   }
 
   filterComments = () => {
-    let filteredComments = this.props.comments.all
+    let filteredComments = this.props.comments.all.filter( comment => comment.post_id === this.state.postId)
     if (this.state.filter.length > 0){
+      let comments = filteredComments
       filteredComments = []
-      this.props.comments.all.forEach( comment => {
-        if (comment.name.toLowerCase().includes(this.state.filter.toLowerCase())) filteredComments.push(comment)
+      comments.forEach( comment => {
+        if (comment.content.toLowerCase().includes(this.state.filter.toLowerCase())) filteredComments.push(comment)
       })
     }
     return filteredComments
   }
 
-
   render(){
     return(
       <div>
-        {this.props.comments.error !== '' ? <p>{this.props.comments.error} {this.props.comments.currentActivity}</p> : null}
-        <div className='new-comment-form'>
-          <form onSubmit={e => this.handleSubmit(e)}>
-            <input type='text' placeholder='Name' onChange={e => this.handleNameChange(e)} value={this.props.name} /><br />
-            <textarea onChange={e => this.handleContentChange(e)} value={this.props.content} /><br />
-            <input type='submit' value='Submit' />
-          </form>
-          <input type="text" onChange={ e => this.handleFilterChange(e)} />
+        <div className='row new-comments-form'>
+          {this.props.comments.error !== '' ? <p>{this.props.comments.error} {this.props.comments.currentActivity}</p> : null}
+          <div className='col-sm-2' />
+          <div className='col-xs-12 col-sm-4'>
+            <form onSubmit={e => this.handleSubmit(e)}>
+              <input type='text' placeholder='Name' onChange={e => this.handleNameChange(e)} value={this.props.name} /><br />
+              <textarea onChange={e => this.handleContentChange(e)} value={this.props.content} placeholder="Comment" /><br />
+              <input type='submit' value='Submit' />
+            </form>
+          </div>
+          <div className='col-xs-12 col-sm-4'>
+            <label>Find:</label><br />
+            <input type="text" onChange={ e => this.handleFilterChange(e)} />
+          </div>
         </div>
-        <Comments comments={this.filterComments()}/>
+        <div className='row comments-wrapper'>
+          <Comments comments={this.filterComments()}/>
+        </div>
       </div>
     )
   }

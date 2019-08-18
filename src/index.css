@@ -100,9 +100,10 @@ a:hover {
 
 ul {
   list-style-image: url('./resources/baseline-code-24px.svg');
+  list-style-position: inside;
 }
 
-ul.done {
+ul.done li {
   list-style-image: url('./resources/baseline-done-24px.svg');
   text-decoration: line-through;
 }
@@ -112,12 +113,35 @@ ul h2 {
   font-size: 1em;
 }
 
-ul.done h2 {
-  text-decoration: none;
-}
-
 .blog-titles ul, .todo ul {
   padding: 0;
+}
+
+
+.new-comments-form {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.new-comments-form input, .new-comments-form textarea, .comments input {
+  background-color: rgb(238, 232, 213);
+  color: rgb(101, 123, 131); 
+  border-radius: 5px;
+}
+
+.new-comments-form textarea {
+  width: 100%;
+  height: 5em;
+}
+
+
+.comments-wrapper {
+  margin-top: 2em;
+}
+
+.comment sub {
+  margin-top: 0px;
+  font-size: .85em;
 }
 
 .board-wrapper {
