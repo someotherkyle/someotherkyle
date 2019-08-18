@@ -8,7 +8,7 @@ class Blog extends Component {
   constructor(props){
     super(props)
     this.state = {
-      postId: parseInt(document.location.href.match(/\d+/g)[1])
+      postId: parseInt(document.location.href.match(/\d+/g))
     }
   }
 
