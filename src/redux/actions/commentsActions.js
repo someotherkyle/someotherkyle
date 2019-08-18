@@ -15,7 +15,7 @@ export const setContent = content => {
 export const pushComment = comment => {
   return dispatch => {
     dispatch({type: 'PUSH_COMMENT', payload: comment})
-    fetch('http://74.207.234.74:3001/comments', {
+    fetch('http://localhost:3001/comments', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -24,16 +24,18 @@ export const pushComment = comment => {
         comment: {
           name: comment.name,
           content: comment.content,
+          post_id: comment.postId
         }
       })
     })
     .then(r => r.status === 200 ? dispatch({type: 'CLEAR_ACTIVITY'}) : dispatch({type: 'ERROR'}))
   }
 }
+
 export const fetchComments = () => {
   return dispatch => {
     dispatch({type: 'FETCHING_COMMENTS'})
-    fetch("http://74.207.234.74:3001/comments")
+    fetch("http://localhost:3001/comments")
     .then(r => r.json())
     .then(comments => 
       dispatch({
