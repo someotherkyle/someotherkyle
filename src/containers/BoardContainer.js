@@ -209,7 +209,6 @@ class BoardContainer extends Component {
         score: this.props.game.score,
         playerName: this.props.game.playerName
       }
-      this.props.updateName('')
       this.props.pushScore(gameInfo)
     }
   } 
