@@ -8,13 +8,17 @@ class Blog extends Component {
   constructor(props){
     super(props)
     this.state = {
-      postId: parseInt(document.location.href.match(/\d+/g))
+      postId: -1
     }
   }
 
   componentDidMount = () => {
     this.props.fetchPosts()
+    this.setState({
+      postId: parseInt(document.location.href.match(/\d+/g))
+    })
     this.whichPost()
+
   }
 
     whichPost = () => {

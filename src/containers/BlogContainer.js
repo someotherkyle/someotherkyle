@@ -37,7 +37,6 @@ class BlogContainer extends Component {
           <div className='col-xs-12 col-sm-4 todo'>
               <ul>
                 <h2>Currently Working On:</h2>
-                <li>Write hosting blog...</li>
                 <li>Issue with blog refresh I need to track down.</li>
                 <li>Animate 2048</li>
                 <li>Add mobile support for 2048, could add directional buttons but I'd like to learn how to respond to swipes.</li>
@@ -46,9 +45,10 @@ class BlogContainer extends Component {
               </ul>
               <ul className='done'>
                 <h2>Completed:</h2>
-                <li>Move Blog over to here</li>
-                <li>Get the database sorted out</li>
-                <li>Responsive Design</li>
+                <li>Write hosting blog... 2019-08-19</li>
+                <li>Move Blog over to here 2019-08-17</li>
+                <li>Get the database sorted out 2019-08-16</li>
+                <li>Responsive Design 2019-08-16</li>
               </ul>
             </div>
             <div className='col-sm-2' />
