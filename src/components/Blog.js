@@ -7,30 +7,21 @@ class Blog extends Component {
 
   constructor(props){
     super(props)
-    this.state = {
-      postId: -1
-    }
-  }
-
-  componentDidMount = () => {
     this.props.fetchPosts()
-    this.setState({
-      postId: parseInt(document.location.href.match(/\d+/g))
-    })
-    this.whichPost()
-
+    this.state = {
+      postId: parseInt(document.location.href.match(/\d+/g)[1])
+    }
+    debugger
   }
 
-    whichPost = () => {
+  componentDidMount(){
+    this.whichPost()
+  }
+
+  whichPost = () => {
     const post = this.props.posts.filter(post => post.id === this.state.postId).pop()
 
-    if (typeof(post) === 'undefined'){
-      return (
-        <div>
-          There was an issue with the redux store or the post you are trying to reach does not exist. Please refresh or select the post from <a href="http://someotherkyle.com/blog">here</a>. If that doesn't work please let me know by <a href="mailto: kyle@someotherkyle.com">email</a>. Sorry :(
-        </div>
-      )
-    } else {
+    if (typeof(post) !== 'undefined'){
       document.getElementById("blog-title").innerHTML = post.title 
       document.getElementById("blog-body").innerHTML = post.content
     }

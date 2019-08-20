@@ -213,7 +213,7 @@ class BoardContainer extends Component {
     }
   } 
 
-  componentDidMount = () => { //hard coded & will need to change if I implement various board sizes
+  componentDidMount(){ //hard coded & will need to change if I implement various board sizes
     canvas.drawBoard()
     if (this.props.game.ongoing){
       window.addEventListener('keypress', event => {this.handleKeyPress(event)})

@@ -4,7 +4,7 @@ import { fetchScores, clearHighScores } from '../redux/actions/scoresActions'
 
 class HighScoresContainer extends Component {
 
-  componentDidMount = () => {
+  componentDidMount(){
     this.props.fetchScores()
     this.sortTable(0)
   }

@@ -13,7 +13,7 @@ class CommentsContainer extends Component {
     }
   }
 
-  componentDidMount = () => {
+  componentDidMount(){
     this.props.fetchComments()
   }
 
@@ -44,6 +44,7 @@ class CommentsContainer extends Component {
   handleFilterChange = e => {
     e.preventDefault()
     this.setState({
+      ...this.state,
       filter: e.target.value
     })
   }

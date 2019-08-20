@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 class BlogContainer extends Component {
 
-  componentDidMount = () => {
+  componentDidMount(){
     this.props.fetchPosts()
   }
 
