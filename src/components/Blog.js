@@ -9,7 +9,7 @@ class Blog extends Component {
     super(props)
     this.props.fetchPosts()
     this.state = {
-      postId: parseInt(document.location.href.match(/\d+/g)[1])
+      postId: parseInt(document.location.href.match(/\d+/g))
     }
     debugger
   }
