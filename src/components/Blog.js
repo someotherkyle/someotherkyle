@@ -1,30 +1,25 @@
 import React, { Component } from 'react'
-import { fetchPosts } from '../redux/actions/blogActions'
-import { connect } from 'react-redux';
 import CommentsContainer from '../containers/CommentsContainer'
 
-class Blog extends Component {
-
-  constructor(props){
-    super(props)
-    this.props.fetchPosts()
-    this.state = {
-      postId: parseInt(document.location.href.match(/\d+/g))
+export default class Blog extends Component {
+    state = {
+      postId: parseInt(document.location.href.match(/\d+/g)),
+      post: {}
     }
-    debugger
-  }
 
   componentDidMount(){
-    this.whichPost()
+    fetch(`http://74.207.234.74:3001/posts/${this.state.postId}`)
+    .then(r => r.json())
+    .then(post => this.setState({
+      ...this.state,
+      post: post
+    }))
+
   }
 
-  whichPost = () => {
-    const post = this.props.posts.filter(post => post.id === this.state.postId).pop()
-
-    if (typeof(post) !== 'undefined'){
-      document.getElementById("blog-title").innerHTML = post.title 
-      document.getElementById("blog-body").innerHTML = post.content
-    }
+  componentDidUpdate(){
+    document.getElementById('blog-title').innerHTML = this.state.post.title
+    document.getElementById('blog-body').innerHTML = this.state.post.content
   }
 
   render(){
@@ -33,7 +28,7 @@ class Blog extends Component {
         <div className='row'>
           <div className='col-xs-1 col-sm-1' />
           <div className='col-xs-10 col-sm-10 blog'>
-            <h1 id="blog-title"> </h1>
+            <h1 id="blog-title">Loading...</h1>
             <div id="blog-body"> </div>
           </div>
           <div className='col-xs-1 col-sm-1' />
@@ -43,11 +38,3 @@ class Blog extends Component {
     )
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    posts: state.blog.posts
-  }
-}
-
-export default connect(mapStateToProps, { fetchPosts })(Blog)
