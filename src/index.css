@@ -117,18 +117,18 @@ ul h2 {
   padding: 0;
 }
 
-.new-comments-form {
+.new-comments {
   margin-top: 25px;
   text-align: center;
 }
 
-.new-comments-form input, .new-comments-form textarea, .comments input {
+.new-comments input, .new-comments textarea, .comments input {
   background-color: rgb(238, 232, 213);
   color: rgb(101, 123, 131); 
   border-radius: 5px;
 }
 
-.new-comments-form textarea {
+.new-comments textarea {
   width: 100%;
   height: 5em;
 }

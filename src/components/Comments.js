@@ -4,12 +4,10 @@ const Comment = props =>  {
 
   return(
     <div>
-      {props.comments.slice(0).reverse().map(comment => (
-        <div className='col-xs-8 col-sm-4 comment' key={comment.id}>
-          {typeof(comment.created_at) !== 'undefined' ? <sub>{comment.created_at.slice(0, 10)} - {comment.name}</sub> : <sub>Now - {comment.name}</sub>}
-          <p>{comment.content}</p>
+        <div className='col-xs-8 col-sm-4 comment' key={props.id}>
+          {typeof(props.created_at) !== 'undefined' ? <sub>{props.created_at.slice(0, 10)} - {props.name}</sub> : <sub>Now - {props.name}</sub>}
+          <p>{props.content}</p>
         </div>
-      ))}
     </div>
   )
 }
