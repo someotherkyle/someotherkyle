@@ -83,7 +83,7 @@ const convertIndexToCoords = (x, y) => {
 
 const drawTile = (x, y, val) => {
     const coords = convertIndexToCoords(x, y)
-    const tileColor = val > 4096 ? "tile 4096" : "tile" + val.toString()
+    const tileColor = val > 4096 ? "tile4096" : "tile" + val.toString()
     const textColor = val === 2? 'darkText' : 'lightText'
     const canvas = document.getElementById('tile-canvas')
     if (canvas.getContext){
