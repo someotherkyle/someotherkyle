@@ -191,15 +191,15 @@ class BoardContainer extends Component {
 
   initializeGame = board => {
       let tile = game.newTile(board)
-      board[tile.x][tile.y] = tile.val
+      this.props.game.playerName === 'amu' ? board[tile.x][tile.y] = 4 : board[tile.x][tile.y] = tile.val
 
       tile = game.newTile(board)
-      board[tile.x][tile.y] = tile.val
+      this.props.game.playerName === 'amu' ? board[tile.x][tile.y] = 4 : board[tile.x][tile.y] = tile.val
   }
 
   endMove = (board, score) => {
     let tile = game.newTile(board)
-    board[tile.x][tile.y] = tile.val
+    this.props.game.playerName === 'amu' ? board[tile.x][tile.y] = 4 : board[tile.x][tile.y] = tile.val
     this.props.updateBoard(board)
     this.props.updateScore(score)
     canvas.drawTiles(board)
