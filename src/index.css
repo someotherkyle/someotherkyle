@@ -148,6 +148,8 @@ ul h2 {
 }
 
 .board-wrapper {
+  max-width: 750px;
+  margin: 5% auto;
   font-family: 'Fira Sans', 
 }
 

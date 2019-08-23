@@ -1,11 +1,8 @@
 import React, {Component} from 'react'
 import Board from '../components/Board'
 import BoardBlurb from '../components/BoardBlurb'
-import { connect } from 'react-redux'
 import * as game from '../game/game'
 import { NavLink } from 'react-router-dom'
-import { updateBoard, updateScore, setName, changePlayState, toggleListener, updateName } from '../redux/actions/gameActions'
-import { pushScore } from '../redux/actions/scoresActions'
 import * as canvas from '../game/canvas'
 
 const eligibility = () =>{
@@ -17,12 +14,11 @@ const eligibility = () =>{
   ]
 }
 
-
-class BoardContainer extends Component {
+export default class BoardContainer extends Component {
   constructor(){
     super()
     this.state = {
-      boardSide: 0,
+      boardSide: 751,
       ongoing: false,
       board: [
         [0, 0, 0, 0],
@@ -37,31 +33,73 @@ class BoardContainer extends Component {
   }
 
   componentDidMount(){ //hard coded & will need to change if I implement various board sizes
-    this.setBoardSide()
-    .then(canvas.drawBoard(this.state.boardSide))
-    if (this.props.game.ongoing){
+    if (this.state.ongoing){
       window.addEventListener('keypress', event => {this.handleKeyPress(event)})
-      canvas.drawTiles(this.state.boardSide, this.props.game.board)
     } else {
-      this.props.changePlayState()
-      let board = this.props.game.board
+      this.changePlayState()
+      let board = this.state.board
 
       this.initializeGame(board)
-
-      this.props.updateBoard(board)
-      canvas.drawTiles(this.state.boardSide, this.props.game.board)
+      this.updateBoard(board)
       window.addEventListener('keypress', event => {this.handleKeyPress(event)})
     }
   }
 
-  setBoardSide = () => {
-    if (document.getElementById('board-div')){
-      document.getElementById('board-div').offsetWidth > 750 ? this.setState({ ...this.state, boardSide: 750}) : this.setState({ ...this.state, boardSide: document.getElementById('board-div') })
+  componentDidUpdate(){
+    if (this.getBoardSide() >= 750) {
+      if (this.state.boardSide !== 750){
+        this.setState({ ...this.state, boardSide: 750})
+      }
+    } else if (this.getBoardSide() !== this.state.boardSide) {
+      this.setState({ ...this.state, boardSide: this.getBoardSide()})
     }
+    canvas.drawBoard(this.state.boardSide)
+    canvas.drawTiles(this.state.boardSide, this.state.board)
+    document.getElementById('board-div').style.height = this.state.boardSide.toString() + 'px' 
+  }
+
+  getBoardSide = () => {
+    return document.getElementById('board-div').offsetWidth
+  }
+
+  toggleListener = value => {
+    this.setState({ ...this.state, listenerEnabled: value })
+  }
+
+  changePlayState = () => {
+    this.state.ongoing === true ? this.setState({...this.state, ongoing: false}) : this.setState({...this.state, ongoing: true})
+  }
+
+  updateBoard = board => {
+    this.setState({ ...this.state, board: board })
+  }
+
+  updateScore = score => {
+    this.setState({ ...this.state, score: score })
+  }
+
+  updateName = e => {
+    e.preventDefault()
+    this.setState({ ...this.state, playerName: e.target.value })
+  }
+
+  pushScore = game => {
+    fetch('http://localhost:3001/games', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        game: {
+          player_name: game.playerName,
+          score: game.score,
+        }
+      })
+    })
   }
 
   handleKeyPress = e => {
-    if (this.props.game.listenerEnabled) {
+    if (this.state.listenerEnabled) {
       e.preventDefault()
       switch (e.keyCode) {
         case 119: 
@@ -91,16 +129,16 @@ class BoardContainer extends Component {
   }
   
   handleMouseOver = e => {
-    this.props.toggleListener(true)
+    this.toggleListener(true)
   }
 
   handleMouseOut = e => {
-    this.props.toggleListener(false)
+    this.toggleListener(false)
   }
 
   up = () => { 
-    let board = this.props.game.board
-    let score = this.props.game.score
+    let board = this.state.board
+    let score = this.state.score
     let eligible = eligibility()
     if (!game.canMoveUp(board)){
       return false
@@ -128,8 +166,8 @@ class BoardContainer extends Component {
   }
 
   down = () => {
-    let board = this.props.game.board
-    let score = this.props.game.score
+    let board = this.state.board
+    let score = this.state.score
     let eligible = eligibility()
     if (!game.canMoveDown(board)){
       return false
@@ -157,8 +195,8 @@ class BoardContainer extends Component {
   }
 
   left = () => {
-    let board = this.props.game.board
-    let score = this.props.game.score
+    let board = this.state.board
+    let score = this.state.score
     let eligible = eligibility()
     if (!game.canMoveLeft(board)){
       return false
@@ -186,8 +224,8 @@ class BoardContainer extends Component {
   }
 
   right = () => {
-    let board = this.props.game.board
-    let score = this.props.game.score
+    let board = this.state.board
+    let score = this.state.score
     let eligible = eligibility()
     if (!game.canMoveRight(board)){
       return false
@@ -222,8 +260,8 @@ class BoardContainer extends Component {
       [0,0,0,0],
       [0,0,0,0]
     ]
-    this.props.updateBoard(board)
-    this.props.updateScore(0)
+    this.updateBoard(board)
+    this.updateScore(0)
 
     this.initializeGame(board)
 
@@ -233,56 +271,47 @@ class BoardContainer extends Component {
 
   initializeGame = board => {
       let tile = game.newTile(board)
-      this.props.game.playerName === 'amu' ? board[tile.x][tile.y] = 4 : board[tile.x][tile.y] = tile.val
+      this.state.playerName === 'amu' ? board[tile.x][tile.y] = 4 : board[tile.x][tile.y] = tile.val
 
       tile = game.newTile(board)
-      this.props.game.playerName === 'amu' ? board[tile.x][tile.y] = 4 : board[tile.x][tile.y] = tile.val
+      this.state.playerName === 'amu' ? board[tile.x][tile.y] = 4 : board[tile.x][tile.y] = tile.val
   }
 
   endMove = (board, score) => {
     let tile = game.newTile(board)
-    this.props.game.playerName === 'amu' ? board[tile.x][tile.y] = 4 : board[tile.x][tile.y] = tile.val
-    this.props.updateBoard(board)
-    this.props.updateScore(score)
+    this.state.playerName === 'amu' ? board[tile.x][tile.y] = 4 : board[tile.x][tile.y] = tile.val
+    this.updateBoard(board)
+    this.updateScore(score)
     canvas.drawTiles(this.state.boardSide, board)
     if (game.noMove(board)){
-      canvas.drawGameOver()
+      canvas.drawGameOver(this.state.boardSide)
       const gameInfo = {
-        score: this.props.game.score,
-        playerName: this.props.game.playerName
+        score: this.state.score,
+        playerName: this.state.playerName
       }
-      this.props.pushScore(gameInfo)
+      this.pushScore(gameInfo)
     }
   } 
-
   
   render(){
     return(
       <div>
         <div className='board-wrapper'>
           <div className='row'>
-            {/* <input type='text' placeholder='Enter Name' onChange={e => this.props.updateName(e.target.value)} />
-            <NavLink to='/play2048/highScores'>Score: {this.props.game.score}</NavLink> */}
+            <input type='text' placeholder='Enter Name' onChange={e => this.updateName(e)} />
+            <NavLink to='/play2048/highScores'>Score: {this.state.score}</NavLink>
           </div>
           <div className='row'>
             <div id='board-div' onMouseOver={e => this.handleMouseOver()} onMouseOut={e => this.handleMouseOut()}>
-              <Board side={this.state.boardSide}/>
+              <Board side={this.state.boardSide} />
             </div>
           </div>
           <div className='row'>
-            {/* <button onClick={e => this.resetGame(e)}>New Game</button>  */}
+            <button onClick={e => this.resetGame(e)}>New Game</button> 
           </div>
         </div>
-        {/* <BoardBlurb /> */}
+        <BoardBlurb />
       </div>
     )
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    game: state.game
-  }
-}
-
-export default connect(mapStateToProps, { updateBoard, updateScore, setName, changePlayState, toggleListener , pushScore, updateName })(BoardContainer)
