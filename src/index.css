@@ -143,10 +143,11 @@ ul h2 {
   font-size: .85em;
 }
 
+#board-div canvas {
+  position: absolute;
+}
+
 .board-wrapper {
-  width: 500px;
-  margin: 5% auto;
-  padding: 0;
   font-family: 'Fira Sans', 
 }
 
@@ -190,16 +191,6 @@ ul h2 {
 
   color: rgb(101, 123, 131);
   text-align: center;
-}
-
-#board-div {
-  width: 500px;
-  height: 500px;
-  margin: 5% auto;
-}
-
-#board-div canvas {
-  position: absolute;
 }
 
 .highScores {

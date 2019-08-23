@@ -17,7 +17,49 @@ const eligibility = () =>{
   ]
 }
 
+
 class BoardContainer extends Component {
+  constructor(){
+    super()
+    this.state = {
+      boardSide: 0,
+      ongoing: false,
+      board: [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+      ],
+      score: 0,
+      listenerEnabled: false,
+      playerName: ''
+    }
+  }
+
+  componentDidMount(){ //hard coded & will need to change if I implement various board sizes
+    this.setBoardSide()
+    .then(canvas.drawBoard(this.state.boardSide))
+    if (this.props.game.ongoing){
+      window.addEventListener('keypress', event => {this.handleKeyPress(event)})
+      canvas.drawTiles(this.state.boardSide, this.props.game.board)
+    } else {
+      this.props.changePlayState()
+      let board = this.props.game.board
+
+      this.initializeGame(board)
+
+      this.props.updateBoard(board)
+      canvas.drawTiles(this.state.boardSide, this.props.game.board)
+      window.addEventListener('keypress', event => {this.handleKeyPress(event)})
+    }
+  }
+
+  setBoardSide = () => {
+    if (document.getElementById('board-div')){
+      document.getElementById('board-div').offsetWidth > 750 ? this.setState({ ...this.state, boardSide: 750}) : this.setState({ ...this.state, boardSide: document.getElementById('board-div') })
+    }
+  }
+
   handleKeyPress = e => {
     if (this.props.game.listenerEnabled) {
       e.preventDefault()
@@ -186,7 +228,7 @@ class BoardContainer extends Component {
     this.initializeGame(board)
 
     canvas.clearGameOver()
-    canvas.drawTiles(board)
+    canvas.drawTiles(this.state.boardSide, board)
   }
 
   initializeGame = board => {
@@ -202,7 +244,7 @@ class BoardContainer extends Component {
     this.props.game.playerName === 'amu' ? board[tile.x][tile.y] = 4 : board[tile.x][tile.y] = tile.val
     this.props.updateBoard(board)
     this.props.updateScore(score)
-    canvas.drawTiles(board)
+    canvas.drawTiles(this.state.boardSide, board)
     if (game.noMove(board)){
       canvas.drawGameOver()
       const gameInfo = {
@@ -213,35 +255,25 @@ class BoardContainer extends Component {
     }
   } 
 
-  componentDidMount(){ //hard coded & will need to change if I implement various board sizes
-    canvas.drawBoard()
-    if (this.props.game.ongoing){
-      window.addEventListener('keypress', event => {this.handleKeyPress(event)})
-      canvas.drawTiles(this.props.game.board)
-    } else {
-      this.props.changePlayState()
-      let board = this.props.game.board
-
-      this.initializeGame(board)
-
-      this.props.updateBoard(board)
-      canvas.drawTiles(this.props.game.board)
-      window.addEventListener('keypress', event => {this.handleKeyPress(event)})
-    }
-  }
   
   render(){
     return(
       <div>
         <div className='board-wrapper'>
-          <input type='text' placeholder='Enter Name' onChange={e => this.props.updateName(e.target.value)} />
-          <NavLink to='/play2048/highScores'>Score: {this.props.game.score}</NavLink>
-          <div onMouseOver={e => this.handleMouseOver()} onMouseOut={e => this.handleMouseOut()}>
-            <Board />
+          <div className='row'>
+            {/* <input type='text' placeholder='Enter Name' onChange={e => this.props.updateName(e.target.value)} />
+            <NavLink to='/play2048/highScores'>Score: {this.props.game.score}</NavLink> */}
           </div>
-          <button onClick={e => this.resetGame(e)}>New Game</button> 
+          <div className='row'>
+            <div id='board-div' onMouseOver={e => this.handleMouseOver()} onMouseOut={e => this.handleMouseOut()}>
+              <Board side={this.state.boardSide}/>
+            </div>
+          </div>
+          <div className='row'>
+            {/* <button onClick={e => this.resetGame(e)}>New Game</button>  */}
+          </div>
         </div>
-        <BoardBlurb />
+        {/* <BoardBlurb /> */}
       </div>
     )
   }

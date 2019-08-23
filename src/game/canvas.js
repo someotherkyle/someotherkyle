@@ -14,22 +14,24 @@ export const roundedRect = (ctx, x, y, width, height, radius) => {
     ctx.fill()
 }
 
-export const drawBoard = () => {
+export const drawBoard = boardSide => {
+  const cornerRadius = boardSide * .01
+  const tileSide = boardSide * .88
+  const spacing = boardSide * .12 / 5
   let canvas = document.getElementById('gameboard-canvas')
   if (canvas.getContext){
     let ctx = canvas.getContext('2d')
     ctx.fillStyle = colors.boardBackground
-    roundedRect(ctx, 0, 0, 500, 500, 5)
-
-    let a = 12
+    roundedRect(ctx, 0, 0, boardSide, boardSide, cornerRadius)
+    let a = spacing
     for (let i = 0; i <= 4; i++){
-      let b = 12
+      let b = spacing
       for (let j = 0; j <=4; j++){
         ctx.fillStyle = colors.emptyTileBackground
-        roundedRect(ctx, a, b, 110, 110, 5)
-        b += 122
+        roundedRect(ctx, a, b, tileSide, tileSide, cornerRadius)
+        b += (spacing + tileSide)
       }
-      a += 122
+      a += (spacing + tileSide)
     }
   }
 }
@@ -65,24 +67,26 @@ const clearTiles = () => {
   }
 }
 
-export const drawTiles = board => {
+export const drawTiles = (side, board) => {
   clearTiles()
   for (let x = 0; x < 4; x++){
     for (let y = 0; y < 4; y++){
-      if (board[x][y] !== 0) drawTile(x, y, board[x][y])
+      if (board[x][y] !== 0) drawTile(side, x, y, board[x][y])
     }
   }
 }
 
-const convertIndexToCoords = (x, y) => {
+const convertIndexToCoords = (side, x, y) => {
+    const tile = side * .88
+    const spacing = side * .12 / 5
     let coords = { x: -1, y: -1 }
-    coords.x = (x * 122) + 12
-    coords.y = (y * 122) + 12
+    coords.x = (x * (tile + spacing)) + spacing
+    coords.y = (y * (tile + spacing)) + spacing
     return coords
 }
 
-const drawTile = (x, y, val) => {
-    const coords = convertIndexToCoords(x, y)
+const drawTile = (side, x, y, val) => {
+    const coords = convertIndexToCoords(side, x, y)
     const tileColor = val > 4096 ? "tile4096" : "tile" + val.toString()
     const textColor = val === 2? 'darkText' : 'lightText'
     const canvas = document.getElementById('tile-canvas')
