@@ -298,8 +298,14 @@ export default class BoardContainer extends Component {
       <div>
         <div className='board-wrapper'>
           <div className='row'>
-            <input type='text' placeholder='Enter Name' onChange={e => this.updateName(e)} />
-            <NavLink to='/play2048/highScores'>Score: {this.state.score}</NavLink>
+            <div className='col-sm-2' />
+            <div className='col-sm-4 2048-input'>
+              <input type='text' placeholder='Enter Name' onChange={e => this.updateName(e)} />
+            </div>
+            <div className='col-sm-4 2048-score'>
+              <NavLink to='/play2048/highScores'>Score: {this.state.score}</NavLink>
+            </div>
+            <div className='col-sm-2' />
           </div>
           <div className='row'>
             <div id='board-div' onMouseOver={e => this.handleMouseOver()} onMouseOut={e => this.handleMouseOut()}>
@@ -307,7 +313,11 @@ export default class BoardContainer extends Component {
             </div>
           </div>
           <div className='row'>
-            <button onClick={e => this.resetGame(e)}>New Game</button> 
+            <div className='col-xs-1 col-sm-3' />
+            <div className='col-xs-10 col-sm-6'>
+              <button onClick={e => this.resetGame(e)}>New Game</button> 
+            </div>
+            <div className='col-xs-1 col-sm-3' />
           </div>
         </div>
         <BoardBlurb />
