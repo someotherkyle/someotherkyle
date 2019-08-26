@@ -143,18 +143,24 @@ ul h2 {
   font-size: .85em;
 }
 
-.board-wrapper {
-  width: 500px;
+#board-div {
   margin: 5% auto;
-  padding: 0;
+}
+
+#board-div canvas {
+  position: absolute;
+}
+
+.board-wrapper {
+  max-width: 750px;
+  margin: 5% auto;
   font-family: 'Fira Sans', 
 }
 
 .board-wrapper input {
-  width: 160px;
+  width: 100%;
   border-radius: 4%;
   border: 2px inset rgb(238, 232, 213);
-  margin-left: 45px;
   
   background-color: rgb(238, 232, 213);
   color: rgb(101, 123, 131); 
@@ -162,10 +168,9 @@ ul h2 {
 }
 
 .board-wrapper a {
-  width: 160px;
+  width: 100%;
   height: 30px;
-  padding: 1px;
-  margin: 0px 45px 3px 0px;
+  padding: 2px;
   border: 2px inset rgb(238, 232, 213);
   border-radius: 4%;
 
@@ -180,8 +185,7 @@ ul h2 {
 }
 
 .board-wrapper button {
-  margin-left: 167px;
-  width: 166px;
+  width: 100%;
   height: 27px;
   border: 2px outset rgb(238, 232, 213);
   border-radius: 4%;
@@ -190,16 +194,6 @@ ul h2 {
 
   color: rgb(101, 123, 131);
   text-align: center;
-}
-
-#board-div {
-  width: 500px;
-  height: 500px;
-  margin: 5% auto;
-}
-
-#board-div canvas {
-  position: absolute;
 }
 
 .highScores {
