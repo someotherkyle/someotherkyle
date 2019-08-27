@@ -27,27 +27,28 @@ class BoardContainer extends Component {
     this.startY = null
   }
 
-  handleKeyPress = e => {
+  handleKeyDown = e => {
     if (this.props.game.listenerEnabled) {
+      console.log(e)
       e.preventDefault()
       switch (e.keyCode) {
-        case 119: 
-        case 107:
+        case 87: 
+        case 75:
         case 38:
           this.up()
           break
-        case 115:
-        case 106:
+        case 83:
+        case 74:
         case 40:
           this.down()
           break
-        case 97:
-        case 104:
+        case 65:
+        case 72:
         case 37:
           this.left()
           break
-        case 100:
-        case 108:
+        case 68:
+        case 76:
         case 39:
           this.right()
           break
@@ -269,7 +270,7 @@ class BoardContainer extends Component {
       this.initializeGame(board)
       this.props.updateBoard(board)
 
-      window.addEventListener('keypress', event => {this.handleKeyPress(event)})
+      window.addEventListener('keydown', event => {this.handleKeyDown(event)})
     }
   }
 
