@@ -145,6 +145,7 @@ ul h2 {
 
 #board-div {
   margin: 5% auto;
+  touch-action: none;
 }
 
 #board-div canvas {
@@ -227,5 +228,5 @@ tr:nth-child(even) {
 }
 
 td {
-  min-width: 300px;
+  padding: .2em 1em;
 }
