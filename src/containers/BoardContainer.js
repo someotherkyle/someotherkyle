@@ -29,7 +29,6 @@ class BoardContainer extends Component {
 
   handleKeyDown = e => {
     if (this.props.game.listenerEnabled) {
-      console.log(e)
       e.preventDefault()
       switch (e.keyCode) {
         case 87: 
@@ -69,17 +68,14 @@ class BoardContainer extends Component {
   handleTouchStart = e => {
     e.preventDefault()
     const t = e.touches[0]
-    console.log('start ' + t.screenX, t.screenY)
 
     this.startX = t.screenX
     this.startY = t.screenY
   }
 
   handleTouchMove = e => {
-    console.log(this.startX, this.startY)
     e.preventDefault()
     if (!this.startX || !this.startY) {
-      console.log('handleTouchMove Exiting early.')
       return
     }
 
@@ -90,14 +86,11 @@ class BoardContainer extends Component {
 
     const diffX = this.startX - endX
     const diffY = this.startY - endY
-    console.log('diff ' + diffX, diffY)
     const minimumChange = 5
     if (Math.abs(diffX) > minimumChange || Math.abs(diffY) > minimumChange) {
       if (Math.abs(diffX) > Math.abs(diffY)) {
-        console.log('difference in X values ' + diffX)
         diffX > 0 ? this.left() : this.right()
       } else {
-        console.log('difference in Y values ' + diffY)
         diffY > 0 ? this.up() : this.down()
       }
     }
@@ -262,7 +255,7 @@ class BoardContainer extends Component {
 
   componentDidMount() { //hard coded & will need to change if I implement various board sizes
     if (this.props.game.ongoing) {
-      window.addEventListener('keypress', event => {this.handleKeyPress(event)})
+      window.addEventListener('keydown', event => {this.handleKeyDown(event)})
     } else {
       this.props.changePlayState()
       let board = this.props.game.board

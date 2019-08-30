@@ -24,7 +24,7 @@ class BlogContainer extends Component {
           <div className='col-xs-12 col-sm-4 blog-titles'>
               <ul>
                 <h2>Posts:</h2>
-                {this.props.blog.posts.reverse().map(post => {
+                {this.props.blog.posts.map(post => {
                   return (
                     <div className='blog-link' key={post.id}>
                       <li>{post.created_at.slice(0,10)}:<br /></li>
