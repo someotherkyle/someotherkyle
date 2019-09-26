@@ -37,13 +37,16 @@ class BlogContainer extends Component {
           <div className='col-xs-12 col-sm-4 todo'>
               <ul>
                 <h2>Currently Working On:</h2>
-                <li>Remove Redux where unnecessary and no longer required (this started out as a project, remember?)</li>
+                <li>Looking for an open source project. My own 'portfolio projects' have become a drain so I'm going to find something to contribute to.</li>
+                <li>Data Structures Visualizer - Adding animation to a fairly complete project proved to be pretty daunting. This will be an opportunity to learn more about the canvas api and create something helpful.</li>
                 <li>Animate 2048 - I think this will make the mobile controls more enjoyable as well.</li>
                 <li>Expand 2048</li>
                 <li>Find new project...</li>
               </ul>
               <ul className='done'>
                 <h2>Completed:</h2>
+                <li>My first merged PR! 2019-09-25</li>
+                <li>Remove Redux where unnecessary and no longer required (this started out as a project, remember?) 2019-09-13</li>
                 <li>Add mobile support for 2048, could add directional buttons but I'd like to learn how to respond to swipes. 2019-08-27</li>
                 <li>Issue with blog refresh I need to track down. 2019-08-20</li>
                 <li>Write hosting blog... 2019-08-19</li>
