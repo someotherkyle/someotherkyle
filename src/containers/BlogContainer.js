@@ -37,6 +37,8 @@ class BlogContainer extends Component {
           <div className='col-xs-12 col-sm-4 todo'>
               <ul>
                 <h2>Currently Working On:</h2>
+                <li>Get SSL (https) working.</li>
+                <li>Learn more about nginx and how to set it up the <em>right</em> way.</li>
                 <li>Looking for an open source project. My own 'portfolio projects' have become a drain so I'm going to find something to contribute to.</li>
                 <li>Data Structures Visualizer - Adding animation to a fairly complete project proved to be pretty daunting. This will be an opportunity to learn more about the canvas api and create something helpful.</li>
                 <li>Animate 2048 - I think this will make the mobile controls more enjoyable as well.</li>
