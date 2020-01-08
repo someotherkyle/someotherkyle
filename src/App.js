@@ -25,7 +25,7 @@ function App() {
         <Route exact path='/projects' component={Projects} />
         <Route exact path='/play2048' component={BoardContainer} />
         <Route exact path='/play2048/highscores' component={HighScoresContainer} />
-        <Footer />
+        <Footer />     
       </div>
     </Router>
   );
