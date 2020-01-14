@@ -8,6 +8,7 @@ const NavBar = () => {
         <NavLink to='/blog' activeClassName='active'className='col-xs-12 col-sm-3'>Blog</NavLink>
         <NavLink to='/play2048' activeClassName='active' className='col-xs-12 col-sm-3'>Play 2048</NavLink>
         <NavLink to='/projects' activeClassName='active'className='col-xs-12 col-sm-3'>Projects</NavLink>
+        <NavLink to='/nowhere' activeClassName='active' className='col-xs-12 col-sm-3'>NoWhere</NavLink>
       </div>
     )
 }
