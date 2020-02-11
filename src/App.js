@@ -15,7 +15,7 @@ import HighScoresContainer from './containers/HighScoresContainer'
 function App() {
   return (
     <Router>
-      <div className='App container-fluid'>
+      <div className='App'>
         <div className='navbar-wrapper'>
           <NavBar />
         </div>

@@ -25,13 +25,9 @@ export default class Blog extends Component {
   render(){
     return(
       <div>
-        <div className='row'>
-          <div className='col-xs-1 col-sm-1' />
-          <div className='col-xs-10 col-sm-10 blog'>
-            <h1 id="blog-title">Loading...</h1>
-            <div id="blog-body"> </div>
-          </div>
-          <div className='col-xs-1 col-sm-1' />
+        <div className='blog'>
+          <h1 id="blog-title">Loading...</h1>
+          <div id="blog-body"> </div>
         </div>
         <CommentsContainer postId={this.state.postId} />
       </div>

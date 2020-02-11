@@ -4,9 +4,8 @@ export default class BoardBlurb extends Component {
 
   render(){
     return(
-      <div className='row'>
-        <div className='col-xs-1 col-sm-1' />
-        <div className='col-xs-10 col-sm-10 project-details'>
+      <div>
+        <div className='project-details'>
           <h3><a rel='noopener noreferrer' href='http://2048game.com'>2048</a> Tribute</h3>
           <p>The aim of 2048 is to combine tiles with the same value until you create a 2048 tile. Use your arrow keys, wasd, or hjkl to collapse tiles up, down, left and right. How high can you go? Replace 'Enter Name' with your name to claim your high score. 
             Click on the score to view all high scores. I would like to point out that I <strong><em>DID NOT</em></strong> come up with this game or its rules. I simply challenged myself to reproduce 
@@ -22,7 +21,6 @@ export default class BoardBlurb extends Component {
           <p>Continuing work on this project, I hope to add functionality to allow this game to be played on mobile and to add animations through requestAnimationFrame().
             Thanks for checking out my project! You're welcome to take a look at the <a rel='noopener noreferrer' href='https://github.com/someotherkyle/2048-react-front'>source</a>.</p>
         </div>
-        <div className='col-xs-1 col-sm-1' />
       </div>
     )
   }

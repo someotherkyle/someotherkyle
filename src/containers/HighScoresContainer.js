@@ -69,30 +69,26 @@ class HighScoresContainer extends Component {
 
   render(){
     return(
-      <div className='row highScores'>
-        <div className='col-sm-1' />
-        <div className='col-xs-12 col-sm-10'>
-          <h3>High Scores!</h3>
-          <table id='scores-table'>
-            <thead>
-              <tr>
-                <th onClick={e => this.sortTableOnClick(e, 0)}>Score</th>
-                <th onClick={e => this.sortTableOnClick(e, 1)}>Player</th>
-                <th>Date</th>
+      <div className='highScores'>
+        <h3>High Scores!</h3>
+        <table id='scores-table'>
+          <thead>
+            <tr>
+              <th onClick={e => this.sortTableOnClick(e, 0)}>Score</th>
+              <th onClick={e => this.sortTableOnClick(e, 1)}>Player</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.games.map(game => (
+              <tr key={game.id}>
+                <td>{game.score}</td>
+                <td>{game.player_name}</td>
+                <td>{game.created_at.substring(0, 10)}</td>
               </tr>
-            </thead>
-            <tbody>
-              {this.props.games.map(game => (
-                <tr key={game.id}>
-                  <td>{game.score}</td>
-                  <td>{game.player_name}</td>
-                  <td>{game.created_at.substring(0, 10)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className='col-sm-1' />
+            ))}
+          </tbody>
+        </table>
       </div>
     )
   }

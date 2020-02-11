@@ -288,27 +288,17 @@ class BoardContainer extends Component {
     return(
       <div>
         <div className='board-wrapper'>
-          <div className='row'>
-            <div className='col-sm-2' />
-            <div className='col-sm-4 2048-input'>
-              <input type='text' placeholder='Enter Name' onChange={e => this.props.updateName(e.target.value)} />
-            </div>
-            <div className='col-sm-4 2048-score'>
-              <NavLink to='/play2048/highScores'>Score: {this.props.game.score}</NavLink>
-            </div>
-            <div className='col-sm-2' />
+          <div className='2048-input'>
+            <input type='text' placeholder='Enter Name' onChange={e => this.props.updateName(e.target.value)} />
           </div>
-          <div className='row'>
-            <div id='board-div' onTouchStart={e => this.handleTouchStart(e)} onTouchMove={e => this.handleTouchMove(e)} onMouseOver={e => this.handleMouseOver()} onMouseOut={e => this.handleMouseOut()}>
-              <Board side={this.state.boardSide} />
-            </div>
+          <div className='2048-score'>
+            <NavLink to='/play2048/highScores'>Score: {this.props.game.score}</NavLink>
           </div>
-          <div className='row'>
-            <div className='col-xs-1 col-sm-3' />
-            <div className='col-xs-10 col-sm-6'>
-              <button onClick={e => this.resetGame(e)}>New Game</button> 
-            </div>
-            <div className='col-xs-1 col-sm-3' />
+          <div id='board-div' onTouchStart={e => this.handleTouchStart(e)} onTouchMove={e => this.handleTouchMove(e)} onMouseOver={e => this.handleMouseOver()} onMouseOut={e => this.handleMouseOut()}>
+            <Board side={this.state.boardSide} />
+          </div>
+          <div className=''>
+            <button onClick={e => this.resetGame(e)}>New Game</button> 
           </div>
         </div>
         <BoardBlurb />
