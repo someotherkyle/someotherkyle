@@ -16,15 +16,15 @@ function App() {
   return (
     <Router>
       <div className='App'>
-        <div className='navbar-wrapper'>
-          <NavBar />
+        <NavBar />
+        <div className='main-content'>
+          <Route exact path='/' component={About} />
+          <Route exact path='/blog' component={BlogContainer} />
+          <Route exact path='/blog/:id' component={Blog} />
+          <Route exact path='/projects' component={Projects} />
+          <Route exact path='/play2048' component={BoardContainer} />
+          <Route exact path='/play2048/highscores' component={HighScoresContainer} />
         </div>
-        <Route exact path='/' component={About} />
-        <Route exact path='/blog' component={BlogContainer} />
-        <Route exact path='/blog/:id' component={Blog} />
-        <Route exact path='/projects' component={Projects} />
-        <Route exact path='/play2048' component={BoardContainer} />
-        <Route exact path='/play2048/highscores' component={HighScoresContainer} />
         <Footer />     
       </div>
     </Router>
