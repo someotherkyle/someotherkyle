@@ -12,6 +12,15 @@ body {
   -moz-osx-font-smoothing: grayscale
 }
 
+* {
+  transition: 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .App {
   display: grid;
   grid-template-columns: 1fr [content-start] 8fr [content-end] 1fr;
@@ -27,7 +36,7 @@ body {
   justify-content: space-around;
 }
 
-.navbar > a {
+.navbar a {
   color: #a4a4a4;
   text-decoration: none;
   margin: 20px;
@@ -38,18 +47,23 @@ body {
 
 .main-content {
   grid-area: content;
-  margin: 20px 0;
+  padding: 20px 0;
   height: 100%;
 }
 
-#about img{
-  display: inline;
+#about {
+  font-size: .75em;
+}
+
+#about img {
+  float: left;
+  margin: 15px;
   max-width: 35%;
 }
 
 #about h1 {
-  display: inline;
-  border: 1px solid red;
+  font-family: 'Rock Salt';
+  font-size: 1.25em;
 }
 
 .footer {
