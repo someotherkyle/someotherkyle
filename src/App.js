@@ -16,6 +16,7 @@ function App() {
   return (
     <Router>
       <div className='App'>
+        <span className='material-icons'>menu</span>
         <NavBar />
         <div className='main-content'>
           <Route exact path='/' component={About} />
