@@ -70,11 +70,27 @@ h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
 
 #headline {
-  border-bottom: .25rem solid var(--accent);
   padding: .25rem 4rem;
   margin: 0 1rem 1rem;
   font-size: 1.2rem;
-  display: flex;
-  flex-wrap:wrap;
-  justify-content: space-around;
+  position: relative;
+  display: grid;
+  grid-template-columns: min-content max-content;
+  grid-area: 
+    "img title"
+    "img title"
+    "img subtitle";
+}
+
+#headline h1 {
+  grid-area : title;
+}
+
+#headline p {
+  font-family: var(--ff-secondary);
+  grid-area: subtitle;
+}
+
+#headline img {
+  grid-area: img;
 }
