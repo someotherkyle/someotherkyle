@@ -4,13 +4,14 @@ export default class About extends Component {
 
   render(){
     return(
-      <div id='about'>
+      <section id='about'>
         <div id='headline'>
-          <h1>my name is <span>kyle.</span></h1>
-          <h1>i solve <span>problems.</span></h1>
+          <h1>my name is <strong>kyle.</strong></h1>
+          <h1>i <strong>solve</strong> problems.</h1>
+          <p className='subtitle'>I am a full stack web developer who loves designing intricate solutions in <strong>code</strong>.</p>
+          <img src="/profile.png" alt="Kyle holding his cat, looking magestic" />
         </div>
-        <p>I am a full stack web developer who loves solving problems through <span>code</span>.</p>
-      </div>
+      </section>
     )
   }
 }
