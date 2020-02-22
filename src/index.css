@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Montserrat:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
 :root {
-  --background-color: #e0e0e0;
-  --background-accent: #00ff00;
-  --font-color: #333;
-  --font-accent: #ccc;
+  --background-color: #333333;
+  --font-color: #bbb;
+  --font-accent: #eee;
+  --accent: #0f0;
   font-family: 'Montserrat';
 }
+
+* {
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
 html {
   width: 100%;
   margin: 0;
@@ -16,23 +22,30 @@ html {
   color: var(--font-color);
 }
 
-* {
-  box-sizing: border-box;
-  transition: all 0.3s;
+body {
+  margin: 0 10%;
 }
 
-#about {
+#headline {
+  border-bottom: .25em solid var(--accent);
+  padding: .25em 6em;
+  margin: 0 1em 1em;
+  font-size: 1.2em;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  color: var(--font-color);
 }
 
-#about h1 {
-  background-color: rgba(255,255,255,0.1);
-  padding: 1em;
-  border-radius: 2em;
-  font-size: 3em;
+#headline h1 > span {
   color: var(--font-accent);
-  filter: blur(0);
+}
+
+#about p {
+  margin-top: 2em;
+  text-align: center;
+  font-size: 1.25em;
+}
+
+#about p span {
+  color: var(--font-accent);
 }

@@ -5,9 +5,11 @@ export default class About extends Component {
   render(){
     return(
       <div id='about'>
-        {/* <img src="/bg.png" alt="background code" /> */}
-        <h1>my name is kyle. i solve problems.</h1>
-        <p>I am a graduate of <a href="https://flatironschool.com">Flatiron School</a> who decided to pursue a career in code after years of working with my hands.</p>
+        <div id='headline'>
+          <h1>my name is <span>kyle.</span></h1>
+          <h1>i solve <span>problems.</span></h1>
+        </div>
+        <p>I am a full stack web developer who loves solving problems through <span>code</span>.</p>
       </div>
     )
   }

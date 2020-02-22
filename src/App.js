@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
-import NavBar from './components/NavBar'
+// import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import About from './components/About'
 import BlogContainer from './containers/BlogContainer'
@@ -16,8 +16,7 @@ function App() {
   return (
     <Router>
       <div className='App'>
-        <span className='material-icons'>menu</span>
-        <NavBar />
+        {/* <NavBar /> */}
         <div className='main-content'>
           <Route exact path='/' component={About} />
           <Route exact path='/blog' component={BlogContainer} />
