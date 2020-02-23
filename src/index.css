@@ -19,15 +19,15 @@
 
   --fs-h1: 3rem;
   --fs-h2: 2.25rem;
-  --fs-h3: 1.5rem;
+  --fs-h3: 1.75rem;
   --fs-body: 1rem;
 }
 
 @media (min-width: 800px) {
   :root {
     --fs-h1: 4.5rem;
-    --fs-h2: 3.75rem;
-    --fs-h3: 1.5rem;
+    --fs-h2: 2.75rem;
+    --fs-h3: 2.25rem;
     --fs-body: 1.125rem;
   }
 }
@@ -45,6 +45,15 @@ body {
   font-size: var(--fs-body);
   font-weight: var(--fw-reg);
   line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-accent)
+}
+
+a:hover {
+    color: var(--clr-light);
 }
 
 .navbar {
@@ -101,18 +110,20 @@ h3 { font-size: var(--fs-h3); }
   color: var(--clr-light);
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-.projects div {
+.project {
   flex: 1;
+  text-align: center;
+  padding: 2em 5em;
 }
 
-.projects h2 {
-  font-size: var(--fs-h2);
+.project h2 {
+  font-size: var(--fs-h3);
 }
-
 
 @media (min-width: 1080px) {
   .headline {
@@ -144,6 +155,4 @@ h3 { font-size: var(--fs-h3); }
     flex-direction: row;
     grid-column-gap: 1em;
   }
-
 }
-

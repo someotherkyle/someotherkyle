@@ -13,18 +13,19 @@ export default class Home extends Component {
           <img src="/profile.png" alt="Kyle holding his cat. The cat looks great." />
         </section>
         <section className='projects'>
-          <div className='project'>
-            <h2>someotherkyle.com</h2>
-            <p>You're already here but this site is constantly under construction.</p>
+
+          <div className='project secondary'>
+            <h2><NavLink to="/blog">Blog</NavLink></h2>
+	    <p>A simple blog with comments connected to a <strong>Postgres</strong> database though <strong>Ruby on Rails</strong> and a <strong>React</strong> front end.</p>
           </div>
 
-          <div className='project'>
+          <div className='project primary'>
             <h2><NavLink to="/play2048">2048 Tribute</NavLink></h2>
-            <p>A tribute to the popular <a rel='noopener noreferrer' target='_blank' href="http://2048game.com">2048 game</a></p>
+            <p>A tribute to the popular <a rel='noopener noreferrer' target='_blank' href="http://2048game.com">2048 game</a>. State is managed with <strong>Redux</strong> and high scores are persisted in the <strong>Postgres</strong> database.</p>
           </div>
 
-          <div className='project'>
-            <h2>warframe Wiki Scraper</h2>
+          <div className='project secondary'>
+            <h2>Activity Tracker</h2>
           </div>
         </section>
       </div>
