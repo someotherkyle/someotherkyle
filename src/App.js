@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom'
 import NavBar from './components/NavBar'
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
 import Home from './components/Home'
 import BlogContainer from './containers/BlogContainer'
 import Blog from './components/Blog'
@@ -25,7 +25,7 @@ function App() {
           <Route exact path='/play2048' component={BoardContainer} />
           <Route exact path='/play2048/highscores' component={HighScoresContainer} />
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Router>
   );
