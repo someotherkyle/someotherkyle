@@ -4,11 +4,9 @@ import {
   Route
 } from 'react-router-dom'
 import NavBar from './components/NavBar'
-// import Footer from './components/Footer'
 import Home from './components/Home'
 import BlogContainer from './containers/BlogContainer'
 import Blog from './components/Blog'
-import Projects from './components/Projects'
 import BoardContainer from './containers/BoardContainer'
 import HighScoresContainer from './containers/HighScoresContainer'
 
@@ -21,7 +19,6 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route exact path='/blog' component={BlogContainer} />
           <Route exact path='/blog/:id' component={Blog} />
-          <Route exact path='/projects' component={Projects} />
           <Route exact path='/play2048' component={BoardContainer} />
           <Route exact path='/play2048/highscores' component={HighScoresContainer} />
         </div>

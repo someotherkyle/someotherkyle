@@ -114,8 +114,6 @@ h3 { font-size: var(--fs-h3); }
 }
 
 
-
-
 @media (min-width: 1080px) {
   .headline {
     margin: 0 auto 5rem;
@@ -140,6 +138,11 @@ h3 { font-size: var(--fs-h3); }
     width: calc(100% + 1.5em);
     justify-self: end;
     align-self: center;
+  }
+
+  .projects {
+    flex-direction: row;
+    grid-column-gap: 1em;
   }
 
 }

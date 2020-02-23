@@ -17,6 +17,7 @@ export default class Home extends Component {
             <h2>someotherkyle.com</h2>
             <p>You're already here but this site is constantly under construction.</p>
           </div>
+
           <div className='project'>
             <h2><NavLink to="/play2048">2048 Tribute</NavLink></h2>
             <p>A tribute to the popular <a rel='noopener noreferrer' target='_blank' href="http://2048game.com">2048 game</a></p>
@@ -24,7 +25,6 @@ export default class Home extends Component {
 
           <div className='project'>
             <h2>warframe Wiki Scraper</h2>
-
           </div>
         </section>
       </div>
