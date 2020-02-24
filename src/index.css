@@ -83,7 +83,10 @@ h1,h2,h3 {
 strong { font-weight: var(--fw-bold); }
 
 h1 { font-size: var(--fs-h1); }
-h2 { font-size: var(--fs-h2); }
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+}
 h3 { font-size: var(--fs-h3); }
 
 .headline {
@@ -119,10 +122,12 @@ h3 { font-size: var(--fs-h3); }
   flex: 1;
   text-align: center;
   padding: 2em 5em;
+  background-color: rgba(255,255,255,.1);
+  border-radius: 1em;
 }
 
-.project h2 {
-  font-size: var(--fs-h2);
+canvas {
+  position: absolute;
 }
 
 @media (min-width: 1080px) {
