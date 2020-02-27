@@ -288,16 +288,16 @@ class BoardContainer extends Component {
     return(
       <div>
         <div className='board-wrapper'>
-          <div className='2048-input'>
+          <div className='game-input'>
             <input type='text' placeholder='Enter Name' onChange={e => this.props.updateName(e.target.value)} />
           </div>
-          <div className='2048-score'>
+          <div className='game-score'>
             <NavLink to='/play2048/highScores'>Score: {this.props.game.score}</NavLink>
           </div>
           <div id='board-div' onTouchStart={e => this.handleTouchStart(e)} onTouchMove={e => this.handleTouchMove(e)} onMouseOver={e => this.handleMouseOver()} onMouseOut={e => this.handleMouseOut()}>
             <Board side={this.state.boardSide} />
           </div>
-          <div className=''>
+          <div className='new-game'>
             <button onClick={e => this.resetGame(e)}>New Game</button> 
           </div>
         </div>
