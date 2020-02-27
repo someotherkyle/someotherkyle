@@ -28,7 +28,7 @@ export default class Home extends Component {
 
           <div className='project secondary'>
             <h2><a rel='noopener noreferrer' target='_blank' href='https://someotherkyle-activity-tracker.herokuapp.com'>Activity Tracker</a></h2>
-	    <p>My very first <strong>web application</strong>. It was built with <strong>Sinatra</strong> and was utilized a <strong>SQLite</strong> database.</p>
+	    <p>My very first <strong>web application</strong>. It was built with <strong>Sinatra</strong> and utilized a <strong>SQLite</strong> database.</p>
 	    <a rel='noopener noreferrer' target='_blank' href="https://github.com/someotherkyle/activity-tracker"><i class="fas fa-code"></i></a>
           </div>
         </section>
