@@ -108,18 +108,14 @@ export default class CommentsContainer extends Component {
   render(){
     return(
       <div>
-        <div className='row new-comments'>
-          <div className='col-sm-4' />
-          <div className='col-xs-12 col-sm-4'>
-            <form id="new-comment-form" onSubmit={e => this.handleSubmit(e)}>
-              <input type='text' placeholder='Name' onChange={e => this.handleNameChange(e)} value={this.props.name} /><br />
-              <textarea onChange={e => this.handleContentChange(e)} value={this.props.content} placeholder="Comment" /><br />
-              <input type='submit' value='Submit' />
-            </form>
-          </div>
-          <div className='col-sm-4' />
+        <div className='new-comments'>
+          <form id="new-comment-form" onSubmit={e => this.handleSubmit(e)}>
+            <input type='text' placeholder='Name' onChange={e => this.handleNameChange(e)} value={this.props.name} /><br />
+            <textarea onChange={e => this.handleContentChange(e)} value={this.props.content} placeholder="Comment" /><br />
+            <input type='submit' value='Submit' />
+          </form>
         </div>
-        <div className='row comments-wrapper'>
+        <div className='comments-wrapper'>
           {this.state.comments.map(comment => <Comments name={comment.name} content={comment.content} created_at={comment.created_at} id={comment.id} key={comment.id} />)}
         </div>
       </div>
