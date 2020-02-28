@@ -217,9 +217,14 @@ canvas {
 
 .highScores {
     margin: 2em 5em;
+    text-align: center;
 }
 
-@media (min-width: 1080px) {
+.highScores table { margin: 2em auto; }
+.highScores table td { height: 2em; }
+.highScores table tr:nth-child(2n) { background-color: rgba(0,0,0,.2); }
+
+@Media (min-width: 1080px) {
   .headline {
     margin: 0 auto 5rem;
     padding-top: 0;
