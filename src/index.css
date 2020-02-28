@@ -215,6 +215,10 @@ canvas {
 .project-details { margin: 2em; }
 .project-details h3 { text-align: center; }
 
+.highScores {
+    margin: 2em 5em;
+}
+
 @media (min-width: 1080px) {
   .headline {
     margin: 0 auto 5rem;
@@ -262,6 +266,7 @@ canvas {
       grid-column: span 2;
   }
 }
+
 @media (min-width: 1200px) { 
   .projects .primary { scale: 1.3; }
 }
