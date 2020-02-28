@@ -222,7 +222,10 @@ canvas {
 
 .highScores table { margin: 2em auto; }
 .highScores table td { height: 2em; }
-.highScores table tr:nth-child(2n) { background-color: rgba(0,0,0,.2); }
+.highScores table tr:nth-child(2n) {
+    background-color: var(--clr-dark);
+    color: var(--clr-accent);
+}
 
 @Media (min-width: 1080px) {
   .headline {
