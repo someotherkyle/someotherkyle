@@ -25,7 +25,7 @@ export default class Blog extends Component {
   render(){
     return(
       <div>
-        <div className='blog'>
+        <div>
           <h1 id="blog-title">Loading...</h1>
           <div id="blog-body"> </div>
         </div>
