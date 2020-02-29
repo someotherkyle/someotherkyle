@@ -245,7 +245,7 @@ canvas {
     text-align: center;
 }
 
-@Media (min-width: 1080px) {
+@media (min-width: 1080px) {
   .headline {
     margin: 0 auto 5rem;
     padding-top: 0;
