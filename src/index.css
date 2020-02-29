@@ -235,9 +235,13 @@ canvas {
 
 .comments-wrapper  input { margin: 1em; }
 
-#blog-title { margin: 1em 3em; }
+#blog-title {
+    margin: 1em;
+    text-align: center;
+}
+
 #blog-body {
-    margin: 3em 8em;
+    margin: 3em;
     text-align: center;
 }
 
@@ -286,8 +290,15 @@ canvas {
   .blog-intro {
       padding: .25em 5em;
       grid-column: span 2;
+
+  #blog-title { margin: 1em 3em; }
+
+  #blog-body {
+	margin: 3em 8em;
+	text-align: center;
   }
 }
+
 
 @media (min-width: 1200px) { 
   .projects .primary { scale: 1.3; }
