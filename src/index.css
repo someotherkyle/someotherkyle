@@ -227,6 +227,14 @@ canvas {
     color: var(--clr-accent);
 }
 
+.comments-wrapper {
+    margin: 2em auto;
+    max-width: 90vh;
+    text-align: center;
+}
+
+.comments-wrapper  input { margin: 1em; }
+
 @Media (min-width: 1080px) {
   .headline {
     margin: 0 auto 5rem;
