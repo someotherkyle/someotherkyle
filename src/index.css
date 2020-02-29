@@ -235,8 +235,9 @@ canvas {
 
 .comments-wrapper  input { margin: 1em; }
 
+#blog-title { margin: 2em 8em; }
 #blog-body {
-    margin: 3em 5em;
+    margin: 3em 8em;
     text-align: center;
 }
 
