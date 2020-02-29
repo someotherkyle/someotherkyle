@@ -290,6 +290,7 @@ canvas {
   .blog-intro {
       padding: .25em 5em;
       grid-column: span 2;
+  }
 
   #blog-title { margin: 1em 3em; }
 
