@@ -8,7 +8,7 @@ export default class Blog extends Component {
     }
 
   componentDidMount(){
-    fetch(`https://74.207.234.74:3001/posts/${this.state.postId}`)
+    fetch(`https://someotherkyle.com:3001/posts/${this.state.postId}`)
     .then(r => r.json())
     .then(post => this.setState({
       ...this.state,

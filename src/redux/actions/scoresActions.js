@@ -5,7 +5,7 @@ export const clearHighScores = () => {
 }
 
 export const fetchScores = () => dispatch =>  {
-  return fetch("https://74.207.234.74:3001/games")
+  return fetch("https://someotherkyle.com:3001/games")
   .then(r => r.json())
   .then(games => 
     dispatch({
@@ -17,7 +17,7 @@ export const fetchScores = () => dispatch =>  {
 
 export const pushScore = game => {
   return dispatch => {
-    fetch('https://74.207.234.74:3001/games', {
+    fetch('https://someotherkyle.com:3001/games', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
