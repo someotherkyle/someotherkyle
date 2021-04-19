@@ -18,7 +18,7 @@ export default class CommentsContainer extends Component {
   }
 
   fetchComments = () => {
-    fetch("https://someotherkyle.com:3001/comments")
+    fetch("http://74.207.234.74:3001/comments")
     .then(r => r.json())
     .then(comments => this.setState({
       ...this.state,
@@ -27,7 +27,7 @@ export default class CommentsContainer extends Component {
   }
 
   pushComment = () => {
-    fetch('https://someotherkyle.com:3001/comments', {
+    fetch('http://74.207.234.74:3001/comments', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
